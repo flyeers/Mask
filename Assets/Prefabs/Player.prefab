@@ -368,8 +368,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a87b4ef12339d4eabadeebccfe275e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Input.PlayerInputController
-  useAbilityInputAction: {fileID: 0}
-  moveInputAction: {fileID: 0}
+  useAbilityInputAction: {fileID: 11400000, guid: a16d7e187a1759e4eb20569f044bcb3b, type: 2}
+  moveInputAction: {fileID: 11400000, guid: 636bef08639003c42a260463b56303ad, type: 2}
 --- !u!114 &5634384414008628928
 MonoBehaviour:
   m_ObjectHideFlags: 0
