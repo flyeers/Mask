@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629348954340664547}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00012506549, y: -0.99626416, z: 0.08634608, w: -0.0014430102}
-  m_LocalPosition: {x: 0.35916245, y: 1.6937037, z: 3.6284208}
+  m_LocalRotation: {x: 0.0003121183, y: -0.9915991, z: 0.1293411, w: -0.001447028}
+  m_LocalPosition: {x: 0.35902822, y: 2.1915512, z: 3.582076}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ThirdPersonController
   characterController: {fileID: 8716550408377435638}
   _playerInputController: {fileID: 5443529984558159663}
-  speed: 3
+  speed: 7
 --- !u!114 &3367463783777985464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -604,8 +604,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8828668250603291023}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00012506549, y: -0.99626416, z: 0.08634608, w: -0.0014430102}
-  m_LocalPosition: {x: 0.35916245, y: 1.6937037, z: 3.6284208}
+  m_LocalRotation: {x: 0.00031211827, y: -0.9915991, z: 0.1293411, w: -0.0014470279}
+  m_LocalPosition: {x: 0.35902822, y: 2.1915512, z: 3.582076}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -672,4 +672,4 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 2, z: -7.5}
+  FollowOffset: {x: 0, y: 2.5, z: -7.5}
