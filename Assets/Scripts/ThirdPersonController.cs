@@ -14,14 +14,33 @@ public class ThirdPersonController : MonoBehaviour
 
     private bool loockDirection = true; //right
     private bool loockForward = true; // up
-    private bool canMove = true; 
+    
+    public bool CanMove { get; set; } = true;
+
+    private bool _gravityEnabled = true;
+
+    public bool GravityEnabled
+    {
+        get { return _gravityEnabled; }
+        set
+        {
+            _gravityEnabled = value;
+            if (!_gravityEnabled)
+            {
+                verticalVelocity = 0f;
+            }
+        }
+    }
 
     private void Update()
     {
-        // Apply gravity every frame so the player stays on the ground
-        ApplyGravity();
+        if (GravityEnabled)
+        {
+            // Apply gravity every frame so the player stays on the ground
+            ApplyGravity();
+        }
 
-        if (canMove)
+        if (CanMove)
         {
             HandleMovement();
         }
@@ -76,6 +95,12 @@ public class ThirdPersonController : MonoBehaviour
 
     public void SetCanMove(bool newCanMove) 
     { 
-        canMove = newCanMove;
+        CanMove = newCanMove;
+    }
+
+    public void EnableAllMovement(bool enable)
+    {
+        CanMove = enable;
+        GravityEnabled = enable;
     }
 }
