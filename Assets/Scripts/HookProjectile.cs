@@ -10,13 +10,16 @@ public class HookProjectile : MonoBehaviour
     [SerializeField] private LayerMask _ceilingLayer;
 
     public event Action OnContact;
+    public event Action OnDestroyed;
     
     private Vector3 _origin;
     private Tween _tween;
+    private bool _hit = false;
 
     public void MoveUp()
     {
         _origin = transform.position;
+        _hit = false;
         
         _tween = DOVirtual.Float(0f, _upDistance, _upTime, distance =>
         {
@@ -29,9 +32,16 @@ public class HookProjectile : MonoBehaviour
             {
                 OnContact?.Invoke();
                 _tween.Kill();
+                _hit = true;
             }
 
-        }).SetEase(Ease.InSine);
+        }).SetEase(Ease.InSine).OnComplete(() =>
+        {
+            if (!_hit)
+            {
+                Destroy(gameObject);
+            }
+        });
     }
 
     public void UpdateOrigin(float upDistance)
@@ -39,5 +49,10 @@ public class HookProjectile : MonoBehaviour
         var newOrigin = _origin + Vector3.up * upDistance;
 
         _lineRenderer.SetPosition(0, newOrigin);
+    }
+
+    private void OnDestroy()
+    {
+        OnDestroyed?.Invoke();
     }
 }

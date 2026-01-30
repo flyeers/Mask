@@ -8,11 +8,25 @@ public class HookAbility : MonoBehaviour
     [SerializeField] private float _upDistance;
     [SerializeField] private float _upTime;
 
+    private bool _lock;
+
     private HookProjectile _currentProjectile;
 
     private void Start()
     {
-        FireHook();
+        Execute();
+    }
+
+    private void Execute()
+    {
+        if (_currentProjectile == null)
+        {
+            FireHook();
+        }
+        else if (!_lock)
+        {
+            ReleaseHook();
+        }
     }
 
     private void FireHook()
@@ -22,10 +36,33 @@ public class HookAbility : MonoBehaviour
             return;
         }
         
+        _lock = true;
         _currentProjectile = Instantiate(_projectilePrefab, _projectileSpawnPoint);
         _currentProjectile.OnContact += OnContact;
+        _currentProjectile.OnDestroyed += OnProjectileDestroyed;
         
         _currentProjectile.MoveUp();
+    }
+
+    private void OnProjectileDestroyed()
+    {
+        _lock = false;
+    }
+
+    private void ReleaseHook()
+    {
+        if (_currentProjectile == null)
+        {
+            return;
+        }
+        
+        var currentProjectile = _currentProjectile;
+        currentProjectile.OnContact -= OnContact;
+        currentProjectile.OnDestroyed -= OnProjectileDestroyed;
+        
+        Destroy(currentProjectile);
+        
+        _currentProjectile = null;
     }
 
     private void OnContact()
@@ -36,7 +73,9 @@ public class HookAbility : MonoBehaviour
         {
             transform.position = originalPosition + Vector3.up * distance;
             _currentProjectile.UpdateOrigin(distance);
-
-        }).SetEase(Ease.InSine);
+        }).SetEase(Ease.InSine).OnComplete(() =>
+        {
+            _lock = false;
+        });
     }
 }
