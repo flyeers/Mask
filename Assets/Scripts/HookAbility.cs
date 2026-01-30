@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using DG.Tweening;
 
@@ -18,13 +17,15 @@ public class HookAbility : MonoBehaviour
 
     private void FireHook()
     {
-        if (_currentProjectile == null)
+        if (_currentProjectile != null)
         {
             return;
         }
         
         _currentProjectile = Instantiate(_projectilePrefab, _projectileSpawnPoint);
         _currentProjectile.OnContact += OnContact;
+        
+        _currentProjectile.MoveUp();
     }
 
     private void OnContact()
