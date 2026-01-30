@@ -11,29 +11,40 @@ public class ThirdPersonController : MonoBehaviour
     private Vector3 currentMovement;
 
     private bool loockDirection = true; //right
+    private bool canMove = true; //right
 
     private void Update()
     {
-        HandleMovement();
+        if (canMove)
+        {
+            HandleMovement();
+        }
     }
 
     private void HandleMovement() 
-    {     
+    {
+       
         Vector3 inputDirection =   new Vector3(_playerInputController.ReadMove().x, 0f, _playerInputController.ReadMove().y);
         Vector3 worldDirection = transform.TransformDirection(inputDirection);
 
         if (_playerInputController.ReadMove().x > 0) loockDirection = true; //right
-        else loockDirection = false; //left
+        else if (_playerInputController.ReadMove().x < 0) loockDirection = false; //left
 
 
         currentMovement.x = worldDirection.x * speed;
         currentMovement.z = worldDirection.z * speed;
 
         characterController.Move(currentMovement * Time.deltaTime);
+        
     }
 
     public bool GetLoockDirection() 
     {
         return loockDirection;
+    }
+
+    public void SetCanMove(bool newCanMove) 
+    { 
+        canMove = newCanMove;
     }
 }

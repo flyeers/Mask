@@ -1,9 +1,11 @@
 using Input;
+using System.Collections;
 using UnityEngine;
 
 public class Dash : MonoBehaviour
 {
     [SerializeField] private float dashMovement = 2f;
+    [SerializeField] private float dashDuration = 0.25f;
 
     private PlayerInputController playerInputController;
     private ThirdPersonController thirdPersonController;
@@ -38,10 +40,9 @@ public class Dash : MonoBehaviour
 
     private void DashAction()
     {
-        Debug.Log("DASHEO");
+        StartCoroutine(WaitDash());
 
         Vector3 pos = gameObject.transform.position;
-
         if (thirdPersonController.GetLoockDirection()) //right
         {
             pos.x += dashMovement;
@@ -55,5 +56,10 @@ public class Dash : MonoBehaviour
 
     }
 
-
+    IEnumerator WaitDash() 
+    {
+        thirdPersonController.SetCanMove(false);
+        yield return new WaitForSeconds(dashDuration);
+        thirdPersonController.SetCanMove(true);
+    }
 }
