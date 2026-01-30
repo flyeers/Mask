@@ -31,6 +31,9 @@ public class Empuje : MonoBehaviour
     // para restaurar estado
     private bool rbEraKinematic;
 
+    private bool agarreEsLateral;
+
+
     private void Awake()
     {
         if (playerInputController == null) playerInputController = GetComponent<PlayerInputController>();
@@ -40,6 +43,10 @@ public class Empuje : MonoBehaviour
         if (playerInputController == null) Debug.LogError("No hay PlayerInputController");
         if (sensor == null) Debug.LogError("No hay MovableSensor en hijos");
         if (characterController == null) Debug.LogError("No hay CharacterController");
+
+        if (thirdPersonController == null)
+            thirdPersonController = GetComponent<ThirdPersonController>();
+
     }
 
     private void OnEnable()
@@ -66,7 +73,7 @@ public class Empuje : MonoBehaviour
 
             agarrando = true;
 
-            if (thirdPersonController != null) thirdPersonController.enabled = false;
+            if (thirdPersonController != null) thirdPersonController.SetCanMove(false);
 
             CalcularLadoMasCercano();
 
@@ -92,7 +99,7 @@ public class Empuje : MonoBehaviour
             rb = null;
             tr = null;
 
-            if (thirdPersonController != null) thirdPersonController.enabled = true;
+            if (thirdPersonController != null) thirdPersonController.SetCanMove(true);
 
             velActual = 0f;
 
@@ -110,6 +117,7 @@ public class Empuje : MonoBehaviour
 
         if (ax > az)
         {
+            agarreEsLateral = true;
             float sign = Mathf.Sign(local.x);
             Vector3 axis = tr.right * sign;
             axis.y = 0f;
@@ -117,6 +125,7 @@ public class Empuje : MonoBehaviour
         }
         else
         {
+            agarreEsLateral = false;
             float sign = Mathf.Sign(local.z);
             Vector3 axis = tr.forward * sign;
             axis.y = 0f;
@@ -144,9 +153,20 @@ public class Empuje : MonoBehaviour
         }
 
         // Input
-        float v = playerInputController.ReadMove().y;
+        Vector2 move = playerInputController.ReadMove();
 
+        // eje permitido (hacia "dentro" del cubo)
         Vector3 dir = -agarreAxisWorld;
+
+        // input en mundo según orientación del player
+        Vector3 worldInput = transform.right * move.x + transform.forward * move.y;
+        worldInput.y = 0f;
+
+        // cuánto del input va en el eje permitido
+        float v = Vector3.Dot(worldInput, dir);
+
+        // opcional: clampa para que no se pase si vas en diagonal
+        v = Mathf.Clamp(v, -1f, 1f);
 
         float velObjetivo = v * velocidadArrastre;
         velActual = Mathf.MoveTowards(velActual, velObjetivo, aceleracionArrastre * Time.fixedDeltaTime);

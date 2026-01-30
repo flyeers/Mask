@@ -48,6 +48,11 @@ public class ThirdPersonController : MonoBehaviour
         return loockDirection;
     }
 
+    public bool GetloockForward()
+    {
+        return loockForward;
+    }
+
     public void SetCanMove(bool newCanMove) 
     { 
         canMove = newCanMove;
