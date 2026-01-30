@@ -9,8 +9,8 @@ namespace Input
     [RequireComponent(typeof(PlayerInput))]
     public class PlayerInputController : MonoBehaviour
     {
-        [SerializeField] private InputActionReference_SO useAbilityInputAction;
-        [SerializeField] private InputActionReference_SO moveInputAction;
+        [SerializeField] private InputActionReference useAbilityInputAction;
+        [SerializeField] private InputActionReference moveInputAction;
         private PlayerInput m_playerInput;
 
         public event Action UseAbility;
@@ -24,7 +24,7 @@ namespace Input
 
         private void PlayerInputOnActionTriggered(InputAction.CallbackContext context)
         {
-            if (context.action == useAbilityInputAction.InputAction)
+            if (context.action == useAbilityInputAction.action)
             {
                 if (context.performed)
                 {
@@ -32,7 +32,7 @@ namespace Input
                 }
             }
 
-            if (context.action == moveInputAction.InputAction)
+            if (context.action == moveInputAction.action)
             {
                 if (context.started)
                 {
@@ -43,7 +43,7 @@ namespace Input
 
         public Vector2 ReadMove()
         {
-            return moveInputAction.InputAction.ReadValue<Vector2>();
+            return moveInputAction.action.ReadValue<Vector2>();
         }
     }
 }
