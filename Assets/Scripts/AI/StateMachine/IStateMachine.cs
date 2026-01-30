@@ -6,6 +6,6 @@ namespace AI.StateMachine
     {
         public void Initialize();
         public void ChangeState(IState newState);
-        public GameObject GetOwnerGameObject();
+        public BaseAgent GetOwnerAgent();
     }
 }
