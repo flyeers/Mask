@@ -11,9 +11,11 @@ namespace Input
     {
         [SerializeField] private InputActionReference_SO useAbilityInputAction;
         [SerializeField] private InputActionReference_SO moveInputAction;
+        [SerializeField] private InputActionReference_SO jumpInputAction;
         private PlayerInput m_playerInput;
 
         public event Action UseAbility;
+        public event Action Jump;
         public event Action Move;
 
         private void Awake()
@@ -37,6 +39,14 @@ namespace Input
                 if (context.started)
                 {
                     Move?.Invoke();
+                }
+            }
+
+            if (context.action == jumpInputAction.InputAction)
+            {
+                if (context.performed)
+                {
+                    Jump?.Invoke();
                 }
             }
         }
