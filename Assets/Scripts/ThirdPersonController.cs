@@ -11,7 +11,8 @@ public class ThirdPersonController : MonoBehaviour
     private Vector3 currentMovement;
 
     private bool loockDirection = true; //right
-    private bool canMove = true; //right
+    private bool loockForward = true; // up
+    private bool canMove = true; 
 
     private void Update()
     {
@@ -29,6 +30,10 @@ public class ThirdPersonController : MonoBehaviour
 
         if (_playerInputController.ReadMove().x > 0) loockDirection = true; //right
         else if (_playerInputController.ReadMove().x < 0) loockDirection = false; //left
+
+
+        if (_playerInputController.ReadMove().y > 0) loockForward = true; //right
+        else if (_playerInputController.ReadMove().y < 0) loockForward = false; //left
 
 
         currentMovement.x = worldDirection.x * speed;
