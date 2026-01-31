@@ -25,6 +25,9 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField] private float groundStick = -2f;     // para "pegarse" al suelo
 
     private bool jumpRequested;
+    
+    private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
 
     public bool CanMove { get; set; } = true;
 
@@ -63,6 +66,8 @@ public class ThirdPersonController : MonoBehaviour
     public void Awake()
     {
         if (_playerInputController == null) _playerInputController = GetComponent<PlayerInputController>();
+        _animator = GetComponentInChildren<Animator>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void OnEnable()
@@ -117,7 +122,6 @@ public class ThirdPersonController : MonoBehaviour
         currentMovement.z = CanMove ? worldDirection.z * speed : 0f;
         currentMovement.y = verticalVelocity;
 
-
         //SET IF LOCK RIGHT / LEFT 
         if (input.x > 0)
         {
@@ -141,6 +145,18 @@ public class ThirdPersonController : MonoBehaviour
 
         // 4) Grounded fiable
         bool groundedNow = (flags & CollisionFlags.Below) != 0;
+
+        if (currentMovement.x > 0f)
+        {
+            _spriteRenderer.flipX = false;
+        }
+        else if (currentMovement.x < 0f)
+        {
+            _spriteRenderer.flipX = true;
+        }
+        
+        var horizontalSpeed = new Vector2(currentMovement.x, currentMovement.z).magnitude;
+        _animator.SetBool("Move", horizontalSpeed > 0.01f);
     }
 
     public bool GetLoockDirection() 
