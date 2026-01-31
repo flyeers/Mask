@@ -157,11 +157,11 @@ public class ThirdPersonController : MonoBehaviour
 
         if (currentMovement.x > 0f)
         {
-            _spriteRenderer.flipX = false;
+            _spriteRenderer.transform.localScale = new Vector3(1f, 1f, 1f);
         }
         else if (currentMovement.x < 0f)
         {
-            _spriteRenderer.flipX = true;
+            _spriteRenderer.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         
         var horizontalSpeed = new Vector2(currentMovement.x, currentMovement.z).magnitude;
