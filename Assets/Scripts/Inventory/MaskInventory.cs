@@ -5,20 +5,19 @@ using UnityEngine.UI;
 
 public class MaskInventory : MonoBehaviour
 {
-    [SerializeField] private List<MaskItem> inventory = new List<MaskItem>();
+    [SerializeField] private List<MaskSO> inventory = new List<MaskSO>();
 
     private void Awake()
     {
         if (inventory.Count > 0) 
         {
-            ActivateItem(inventory[0].maskSo);
+            ActivateItem(inventory[0]);
         }
     }
 
     public void AddItem(MaskSO maskSO)
     {
-        MaskItem maskItem = new MaskItem(maskSO);
-        inventory.Add(maskItem);
+        inventory.Add(maskSO);
 
         //ACTIVATE ITEM 
         ActivateItem(maskSO);
@@ -26,16 +25,16 @@ public class MaskInventory : MonoBehaviour
 
     public void ActivateItem(MaskSO maskSO) 
     {
-        foreach (MaskItem maskItem in inventory) 
+        foreach (MaskSO mask in inventory) 
         {
-            Type tipo = Type.GetType(maskItem.maskSo.AbilityScriptName);
+            Type tipo = Type.GetType(mask.AbilityScriptName);
             if (tipo != null)
             {
                 Component comp = GetComponent(tipo);
 
                 if (comp != null)
                 {
-                    if (maskItem.maskSo == maskSO) ((Behaviour)comp).enabled = true;
+                    if (mask == maskSO) ((Behaviour)comp).enabled = true;
                     else ((Behaviour)comp).enabled = false;
                 }
             }

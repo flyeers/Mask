@@ -46,7 +46,10 @@ public class ThirdPersonController : MonoBehaviour
             ApplyGravityAndJump();
         }
 
-        HandleMovement();
+        if (CanMove) 
+        { 
+            HandleMovement();
+        }
     }
 
 
