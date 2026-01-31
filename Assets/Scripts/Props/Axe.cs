@@ -14,8 +14,8 @@ public class Axe : MonoBehaviour
 
     void Start()
     {
-        startRotation = transform.rotation;
-        endRotation = Quaternion.Euler(0, 0, targetAngle);
+        startRotation = transform.localRotation;
+        endRotation = startRotation * Quaternion.Euler(targetAngle, 0, 0);
 
         StartCoroutine(Rotate());
     }
@@ -23,25 +23,25 @@ public class Axe : MonoBehaviour
 
     IEnumerator Rotate()
     {
-        while (true) { 
+        while (true) {
 
             float t = 0f;
 
-            // Rotate to target angle
+            // Rotate to target angle (local)
             while (t < 1f)
             {
                 t += Time.deltaTime * speed;
-                transform.rotation = Quaternion.Lerp(startRotation, endRotation, t);
+                transform.localRotation = Quaternion.Lerp(startRotation, endRotation, t);
                 yield return null;
             }
 
             t = 0f;
 
-            // Rotate back to original rotation
+            // Rotate back to original local rotation
             while (t < 1f)
             {
                 t += Time.deltaTime * speed;
-                transform.rotation = Quaternion.Lerp(endRotation, startRotation, t);
+                transform.localRotation = Quaternion.Lerp(endRotation, startRotation, t);
                 yield return null;
             }
             yield return new WaitForSeconds(waitTime);
@@ -52,28 +52,14 @@ public class Axe : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-       /* if (other.CompareTag("Player"))
-
-        other.GetComponentInParent<Damageable>();
-        {
-            if ()
+        if (other.CompareTag("Player")) 
+        { 
+            if (other.GetComponentInParent<Damageable>())
             {
-                damageable.Die();
+                other.GetComponentInParent<Damageable>().Die();
                 Debug.Log("die");
-            }
-        }*/
+            } 
+        }      
     }
-
-    /*void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            if (collision.gameObject.TryGetComponent<Damageable>(out Damageable damageable))
-            {
-                damageable.Die();
-                Debug.Log("die");
-            }
-        }
-    }*/
 
 }
