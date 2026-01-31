@@ -80,6 +80,7 @@ public class HookAbility : MonoBehaviour
         _lock = false;
         
         _thirdPersonController.EnableAllMovement(true);
+        _animator.SetBool(Hook, false);
     }
 
     private void ReleaseHook()

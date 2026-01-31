@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 394926275782005439}
   - component: {fileID: 7596132381589257359}
   - component: {fileID: 7750208877164415704}
-  - component: {fileID: 3768385730135338556}
   m_Layer: 0
   m_Name: Guard
   m_TagString: Untagged
@@ -202,20 +201,6 @@ MonoBehaviour:
   sensors:
   - {fileID: 8564976170543243661}
   - {fileID: 7729415579237203249}
---- !u!114 &3768385730135338556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226502758788493206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 834f23c124abe61449973b2d4d3886a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RotateToAgentDirection
-  navMeshAgent: {fileID: 5800133217385945684}
-  rotationSpeed: 2
 --- !u!1 &3660761171087728567
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,6 +355,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4182071118687735317}
+  - component: {fileID: 8123396840302193306}
   m_Layer: 0
   m_Name: Sensors
   m_TagString: Untagged
@@ -394,6 +380,22 @@ Transform:
   - {fileID: 3113377102966752536}
   m_Father: {fileID: 6897155610403805515}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8123396840302193306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452389485211093780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 834f23c124abe61449973b2d4d3886a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RotateToAgentDirection
+  navMeshAgent: {fileID: 5800133217385945684}
+  rotationSpeed: 2
+  _spriteRenderer: {fileID: 8435254958982443635}
+  _animator: {fileID: 4674470545158685647}
 --- !u!1 &8224971385300820660
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +408,7 @@ GameObject:
   - component: {fileID: 8435254958982443635}
   - component: {fileID: 4674470545158685647}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
