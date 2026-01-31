@@ -740,6 +740,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 778852548490030449, guid: c217b2bbba04c1c4ca73828f636b800e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 778852548490030449, guid: c217b2bbba04c1c4ca73828f636b800e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 778852548490030449, guid: c217b2bbba04c1c4ca73828f636b800e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 778852548490030449, guid: c217b2bbba04c1c4ca73828f636b800e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.148
       objectReference: {fileID: 0}
@@ -782,10 +794,6 @@ PrefabInstance:
     - target: {fileID: 4318789417983010240, guid: c217b2bbba04c1c4ca73828f636b800e, type: 3}
       propertyPath: m_Name
       value: Axe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6845278341749109417, guid: c217b2bbba04c1c4ca73828f636b800e, type: 3}
-      propertyPath: targetAngle
-      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

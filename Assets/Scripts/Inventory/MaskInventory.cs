@@ -20,7 +20,7 @@ public class MaskInventory : MonoBehaviour
                 {
                     if (maskInventoryUI) maskInventoryUI.AddItemUI(mask.MaskSprite);
                 }
-                maskInventoryUI.ActivateItemUI(0);
+                if (maskInventoryUI) maskInventoryUI.ActivateItemUI(0);
                 ActivateItem(inventory[0]);
                 CurrentItemIndex = 0;
             }
