@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CheckpointLoadScene : MonoBehaviour
+public class Checkpoint : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
