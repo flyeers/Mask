@@ -36,4 +36,25 @@ public class MaskInventoryUI : MonoBehaviour
             masks[i].color = c;
         }
     }
+
+    public void Clear()
+    {
+        // Resetea el contador: no hay ninguna máscara mostrada
+        currentMascksCount = -1;
+
+        // Apaga todas las casillas y las deja “limpias”
+        for (int i = 0; i < masks.Length; i++)
+        {
+            if (masks[i] == null) continue;
+
+            masks[i].gameObject.SetActive(false);
+            masks[i].sprite = null;
+
+            // opcional: deja el alpha a 1 por defecto
+            Color c = masks[i].color;
+            c.a = 1f;
+            masks[i].color = c;
+        }
+    }
+
 }
