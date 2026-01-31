@@ -101,7 +101,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -123,7 +123,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -145,7 +145,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -167,7 +167,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -189,7 +189,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -211,7 +211,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 256
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -233,7 +233,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 256
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -255,7 +255,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 256
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -277,7 +277,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 256
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -299,7 +299,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -321,7 +321,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 192
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -343,7 +343,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 192
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -365,7 +365,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 192
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -387,7 +387,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 192
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -409,7 +409,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 192
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -431,7 +431,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 192
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -453,7 +453,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 192
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -475,7 +475,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 7
@@ -497,7 +497,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 7
@@ -519,7 +519,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 7
@@ -541,7 +541,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 7
@@ -563,7 +563,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 7
@@ -585,7 +585,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 7
@@ -607,7 +607,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 7
@@ -629,7 +629,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 7
@@ -651,7 +651,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 7
@@ -673,7 +673,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 576
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 7
@@ -695,7 +695,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 640
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 7
@@ -717,7 +717,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 704
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 7
@@ -739,7 +739,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 128
         width: 64
         height: 64
       alignment: 7
@@ -761,7 +761,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 64
+        y: 128
         width: 64
         height: 64
       alignment: 7
@@ -783,7 +783,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 64
+        y: 128
         width: 64
         height: 64
       alignment: 7
@@ -805,7 +805,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 64
+        y: 128
         width: 64
         height: 64
       alignment: 7
@@ -827,7 +827,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 64
+        y: 128
         width: 64
         height: 64
       alignment: 7
@@ -849,7 +849,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 64
+        y: 128
         width: 64
         height: 64
       alignment: 7
@@ -871,7 +871,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 64
+        y: 128
         width: 64
         height: 64
       alignment: 7
@@ -893,7 +893,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 64
+        y: 128
         width: 64
         height: 64
       alignment: 7
@@ -915,7 +915,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 64
         width: 64
         height: 64
       alignment: 7
@@ -937,7 +937,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 0
+        y: 64
         width: 64
         height: 64
       alignment: 7
@@ -959,7 +959,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 0
+        y: 64
         width: 64
         height: 64
       alignment: 7
@@ -972,6 +972,116 @@ TextureImporter:
       bones: []
       spriteID: c9746b5140ab2bde2b4109da4fd4fbe2
       internalID: 1057388486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThiefSheet_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d51eeb00e05c75e1b4c4aeb39c19271
+      internalID: 1964203704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThiefSheet_41
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50bf21c673d5eeb67bf95f3fe98c76ca
+      internalID: -2139138517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThiefSheet_42
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c4c6575cfc284e45a80d1110611ca38
+      internalID: 243157385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThiefSheet_43
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5359d32624a7d1d64ad0eb492c92a777
+      internalID: -1589738731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThiefSheet_44
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52e8069f124392f7d81ca9b154fc80db
+      internalID: -527045716
       vertices: []
       indices: 
       edges: []
@@ -990,7 +1100,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":1,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       ThiefSheet_0: 1813285092
       ThiefSheet_1: -1272630882
@@ -1027,6 +1137,11 @@ TextureImporter:
       ThiefSheet_38: -1241026476
       ThiefSheet_39: 1057388486
       ThiefSheet_4: -1024474705
+      ThiefSheet_40: 1964203704
+      ThiefSheet_41: -2139138517
+      ThiefSheet_42: 243157385
+      ThiefSheet_43: -1589738731
+      ThiefSheet_44: -527045716
       ThiefSheet_5: -1602939196
       ThiefSheet_6: 1575897177
       ThiefSheet_7: -1576507229
