@@ -15,3 +15,5 @@ MonoBehaviour:
   Name: burglar
   MaskSprite: {fileID: -1246148377, guid: a1b76e3386d3d93a79bfe49ee4b74546, type: 3}
   AbilityScriptName: HookAbility
+  MaskSpriteRight: {fileID: -1968435280, guid: a1b76e3386d3d93a79bfe49ee4b74546, type: 3}
+  MaskSpriteLeft: {fileID: -1968435280, guid: a1b76e3386d3d93a79bfe49ee4b74546, type: 3}

@@ -7,8 +7,14 @@ public class MaskInventory : MonoBehaviour
 {
     [SerializeField] private List<MaskSO> inventory = new List<MaskSO>();
     [SerializeField] MaskInventoryUI maskInventoryUI;
+    [SerializeField] private ThirdPersonController thirdPersonController;
 
     private int CurrentItemIndex = -1; 
+    
+    public int CurrentItemCount => inventory.Count;
+    
+    public MaskSO PreviousMask { get; private set; }
+    public MaskSO CurrentMask { get; private set; }
 
     private void Awake()
     {
@@ -25,6 +31,8 @@ public class MaskInventory : MonoBehaviour
                 CurrentItemIndex = 0;
             }
         }
+        
+        thirdPersonController = GetComponent<ThirdPersonController>();
     }
 
     public void AddItem(MaskSO maskSO)
@@ -39,6 +47,12 @@ public class MaskInventory : MonoBehaviour
 
     public void ActivateItem(MaskSO maskSO) 
     {
+        if (CurrentItemIndex > -1)
+        {
+            PreviousMask = inventory[CurrentItemIndex];
+        }
+        CurrentMask = maskSO;
+        
         foreach (MaskSO mask in inventory) 
         {
             Type tipo = Type.GetType(mask.AbilityScriptName);
@@ -59,6 +73,8 @@ public class MaskInventory : MonoBehaviour
         }
 
         if (maskInventoryUI) maskInventoryUI.ActivateItemUI(inventory.IndexOf(maskSO));
+        
+        thirdPersonController.UpdateMasksSprites();
     }
     public void NextItem() 
     {

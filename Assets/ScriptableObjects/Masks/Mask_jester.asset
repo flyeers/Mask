@@ -15,3 +15,5 @@ MonoBehaviour:
   Name: Jester
   MaskSprite: {fileID: 2049110286, guid: a1b76e3386d3d93a79bfe49ee4b74546, type: 3}
   AbilityScriptName: Dash
+  MaskSpriteRight: {fileID: -471725941, guid: a1b76e3386d3d93a79bfe49ee4b74546, type: 3}
+  MaskSpriteLeft: {fileID: -471725941, guid: a1b76e3386d3d93a79bfe49ee4b74546, type: 3}

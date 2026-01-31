@@ -9,6 +9,10 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField] private MaskInventory maskInventory;
     [SerializeField] private CinemachineCamera cinemachineCameraRight;
     [SerializeField] private CinemachineCamera cinemachineCameraLeft;
+    
+    [SerializeField] private SpriteRenderer _playerSpriteRenderer;
+    [SerializeField] private SpriteRenderer _currentMaskSpriteRenderer;
+    [SerializeField] private SpriteRenderer _oldMaskSpriteRenderer;
 
 
     [SerializeField] private float speed = 3.0f;
@@ -27,7 +31,6 @@ public class ThirdPersonController : MonoBehaviour
     private bool jumpRequested;
     
     private Animator _animator;
-    private SpriteRenderer _spriteRenderer;
 
     public bool CanMove { get; set; } = true;
 
@@ -76,7 +79,6 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (_playerInputController == null) _playerInputController = GetComponent<PlayerInputController>();
         _animator = GetComponentInChildren<Animator>();
-        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void OnEnable()
@@ -157,11 +159,11 @@ public class ThirdPersonController : MonoBehaviour
 
         if (currentMovement.x > 0f)
         {
-            _spriteRenderer.transform.localScale = new Vector3(1f, 1f, 1f);
+            _playerSpriteRenderer.transform.localScale = new Vector3(1f, 1f, 1f);
         }
         else if (currentMovement.x < 0f)
         {
-            _spriteRenderer.transform.localScale = new Vector3(-1f, 1f, 1f);
+            _playerSpriteRenderer.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         
         var horizontalSpeed = new Vector2(currentMovement.x, currentMovement.z).magnitude;
@@ -200,12 +202,41 @@ public class ThirdPersonController : MonoBehaviour
 
     private void Previous()
     {
+        if (maskInventory.CurrentItemCount < 2)
+        {
+            return;
+        }
+        
         maskInventory.PrevItem();
     }
 
     private void Next()
     {
+        if (maskInventory.CurrentItemCount < 2)
+        {
+            return;
+        }
+        
         maskInventory.NextItem();
+    }
 
+    public void UpdateMasksSprites()
+    {
+        var mask = Mathf.Approximately(_playerSpriteRenderer.transform.localScale.x, 1f)
+            ? maskInventory.CurrentMask.MaskSpriteRight
+            : maskInventory.CurrentMask.MaskSpriteLeft;
+
+        _currentMaskSpriteRenderer.sprite = mask;
+
+        if (maskInventory.PreviousMask != null)
+        {
+            var oldMask = Mathf.Approximately(_playerSpriteRenderer.transform.localScale.x, 1f)
+                ? maskInventory.PreviousMask.MaskSpriteRight
+                : maskInventory.PreviousMask.MaskSpriteLeft;
+        
+            _oldMaskSpriteRenderer.sprite = oldMask;
+            
+            _animator.SetTrigger("ChangeMask");
+        }
     }
 }
