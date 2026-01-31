@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using Input;
 
 public class ThirdPersonController : MonoBehaviour
@@ -14,42 +14,87 @@ public class ThirdPersonController : MonoBehaviour
 
     private bool loockDirection = true; //right
     private bool loockForward = true; // up
-    private bool canMove = true; 
+
+    [Header("Salto")]
+    [SerializeField] private float jumpHeight = 1.2f;     // altura del salto
+    [SerializeField] private float groundStick = -2f;     // para "pegarse" al suelo
+
+    private bool jumpRequested;
+
+    public bool CanMove { get; set; } = true;
+
+    private bool _gravityEnabled = true;
+
+    public bool GravityEnabled
+    {
+        get { return _gravityEnabled; }
+        set
+        {
+            _gravityEnabled = value;
+            if (!_gravityEnabled)
+            {
+                verticalVelocity = 0f;
+            }
+        }
+    }
 
     private void Update()
     {
-        // Apply gravity every frame so the player stays on the ground
-        ApplyGravity();
-
-        if (canMove)
+        if (GravityEnabled)
         {
-            HandleMovement();
+            // 1) Actualiza verticalVelocity (NO mueve)
+            ApplyGravityAndJump();
         }
+
+        HandleMovement();
     }
 
-    private void ApplyGravity()
+
+
+
+    public void Awake()
     {
-        // Reset downward velocity when grounded to prevent build-up
-        if (characterController.isGrounded && verticalVelocity < 0)
-        {
-            verticalVelocity = -2f; // Small force to keep player snapped to floors
-        }
-        else
-        {
-            // Acceleration: speed increases over time while falling
-            verticalVelocity += gravity * Time.deltaTime;
-        }
-
-        // Apply only the vertical part of movement
-        characterController.Move(new Vector3(0, verticalVelocity, 0) * Time.deltaTime);
+        if (_playerInputController == null) _playerInputController = GetComponent<PlayerInputController>();
     }
+
+    private void OnEnable()
+    {
+        if (_playerInputController != null)
+            _playerInputController.Jump += Jump;
+    }
+
+    private void OnDisable()
+    {
+        if (_playerInputController != null)
+            _playerInputController.Jump -= Jump;
+    }
+
+    private void ApplyGravityAndJump()
+    {
+        bool grounded = characterController.isGrounded; // del frame anterior
+
+        if (grounded && verticalVelocity < 0f)
+            verticalVelocity = groundStick;
+
+        if (jumpRequested && grounded)
+            verticalVelocity = Mathf.Sqrt(2f * jumpHeight * -gravity);
+
+        jumpRequested = false;
+
+        verticalVelocity += gravity * Time.deltaTime;
+    }
+
 
     private void HandleMovement() 
     {
-        // Caching input for performance and logic checks
+        // 2) Calcula el movimiento horizontal
         Vector2 input = _playerInputController.ReadMove();
         Vector3 inputDirection = new Vector3(input.x, 0f, input.y);
         Vector3 worldDirection = transform.TransformDirection(inputDirection);
+
+        currentMovement.x = CanMove ? worldDirection.x * speed : 0f;
+        currentMovement.z = CanMove ? worldDirection.z * speed : 0f;
+        currentMovement.y = verticalVelocity;
 
         if (input.x > 0) loockDirection = true; //right
         else if (input.x < 0) loockDirection = false; //left
@@ -57,11 +102,11 @@ public class ThirdPersonController : MonoBehaviour
         if (input.y > 0) loockForward = true; //up
         else if (input.y < 0) loockForward = false; //down
 
-        currentMovement.x = worldDirection.x * speed;
-        currentMovement.z = worldDirection.z * speed;
+        // 3) ✅ Un solo Move por frame
+        CollisionFlags flags = characterController.Move(currentMovement * Time.deltaTime);
 
-        // Move horizontally (Y is set to 0 because ApplyGravity handles the vertical)
-        characterController.Move(new Vector3(currentMovement.x, 0, currentMovement.z) * Time.deltaTime);
+        // 4) Grounded fiable
+        bool groundedNow = (flags & CollisionFlags.Below) != 0;
     }
 
     public bool GetLoockDirection() 
@@ -76,6 +121,18 @@ public class ThirdPersonController : MonoBehaviour
 
     public void SetCanMove(bool newCanMove) 
     { 
-        canMove = newCanMove;
+        CanMove = newCanMove;
+    }
+
+    public void EnableAllMovement(bool enable)
+    {
+        CanMove = enable;
+        GravityEnabled = enable;
+    }
+
+    private void Jump()
+    {
+        if (!CanMove) return; // no salto mientras arrastro
+        jumpRequested = true;
     }
 }

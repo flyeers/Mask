@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using Input;
 
 public class HookAbility : MonoBehaviour
 {
@@ -11,10 +12,29 @@ public class HookAbility : MonoBehaviour
     private bool _lock;
 
     private HookProjectile _currentProjectile;
+    private PlayerInputController _playerInputController;
+    private ThirdPersonController _thirdPersonController;
 
-    private void Start()
+    private void Awake()
     {
-        Execute();
+        _playerInputController = GetComponent<PlayerInputController>();
+        _thirdPersonController = GetComponent<ThirdPersonController>();
+    }
+
+    private void OnEnable()
+    {
+        if (_playerInputController != null)
+        {
+            _playerInputController.UseAbility += Execute;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (_playerInputController != null)
+        {
+            _playerInputController.UseAbility -= Execute;
+        }
     }
 
     private void Execute()
@@ -41,12 +61,16 @@ public class HookAbility : MonoBehaviour
         _currentProjectile.OnContact += OnContact;
         _currentProjectile.OnDestroyed += OnProjectileDestroyed;
         
+        _thirdPersonController.EnableAllMovement(false);
+        
         _currentProjectile.MoveUp();
     }
 
     private void OnProjectileDestroyed()
     {
         _lock = false;
+        
+        _thirdPersonController.EnableAllMovement(true);
     }
 
     private void ReleaseHook()
@@ -58,9 +82,8 @@ public class HookAbility : MonoBehaviour
         
         var currentProjectile = _currentProjectile;
         currentProjectile.OnContact -= OnContact;
-        currentProjectile.OnDestroyed -= OnProjectileDestroyed;
         
-        Destroy(currentProjectile);
+        Destroy(currentProjectile.gameObject);
         
         _currentProjectile = null;
     }
