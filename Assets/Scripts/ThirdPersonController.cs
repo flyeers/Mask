@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using Input;
+using Unity.Cinemachine;
 
 public class ThirdPersonController : MonoBehaviour
 {
     [SerializeField] private CharacterController characterController;
     [SerializeField] private PlayerInputController _playerInputController;
     [SerializeField] private MaskInventory maskInventory;
+    [SerializeField] private CinemachineCamera cinemachineCameraRight;
+    [SerializeField] private CinemachineCamera cinemachineCameraLeft;
+
 
     [SerializeField] private float speed = 3.0f;
     [SerializeField] private float gravity = -9.81f; // Added gravity constant
@@ -113,9 +117,22 @@ public class ThirdPersonController : MonoBehaviour
         currentMovement.z = CanMove ? worldDirection.z * speed : 0f;
         currentMovement.y = verticalVelocity;
 
-        if (input.x > 0) loockDirection = true; //right
-        else if (input.x < 0) loockDirection = false; //left
 
+        //SET IF LOCK RIGHT / LEFT 
+        if (input.x > 0)
+        {
+            loockDirection = true; //right
+            cinemachineCameraRight.enabled = true;
+            cinemachineCameraLeft.enabled = false;
+        }
+        else if (input.x < 0) 
+        {
+            loockDirection = false; //left
+            cinemachineCameraRight.enabled = false;
+            cinemachineCameraLeft.enabled = true;
+        }
+
+        //SET IF LOCK RIGHT / LEFT 
         if (input.y > 0) loockForward = true; //up
         else if (input.y < 0) loockForward = false; //down
 
