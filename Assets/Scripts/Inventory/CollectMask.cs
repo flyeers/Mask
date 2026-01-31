@@ -14,6 +14,7 @@ public class CollectMask : MonoBehaviour
                     if (maskItem.maskSo != null) 
                     { 
                         maskInventory.AddItem(maskItem.maskSo);
+                        
                         Destroy(gameObject);
                     } 
                 }
