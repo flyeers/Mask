@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,7 +11,12 @@ public class RotateToAgentDirection : MonoBehaviour
     
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Animator _animator;
-    
+
+    private void Awake()
+    {
+        _spriteRenderer.transform.rotation = Quaternion.identity;
+    }
+
     private void Update()
     {
         var isMoving = navMeshAgent.velocity.sqrMagnitude > 0f;
