@@ -191,7 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HookAbility
   _projectilePrefab: {fileID: 1138898415761017999, guid: 55fd8c652ad99b7c999f369dd733bcf8, type: 3}
   _projectileSpawnPoint: {fileID: 5068335511702601785}
-  _upDistance: 6
+  _upDistance: 2
   _upTime: 0.25
 --- !u!114 &8397988874177324419
 MonoBehaviour:
