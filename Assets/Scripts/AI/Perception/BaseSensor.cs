@@ -58,7 +58,7 @@ namespace AI.Perception
             Perceivable perceivable = sensedObject.GetComponentInParent<Perceivable>();
             if (perceivable == null || !perceivable.enabled)
             {
-                return false;
+                return true;
             }
             switch (maskMode)
             {

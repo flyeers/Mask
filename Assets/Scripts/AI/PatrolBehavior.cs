@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 namespace AI
 {
-    public class PatrolBehavior : MonoBehaviour
+    public class PatrolBehavior : BaseStateBehavior
     {
         [SerializeField]
         Transform[] waypoints;
@@ -22,14 +22,9 @@ namespace AI
             
         }
 
-        private void Start()
+        public override void StartBehavior()
         {
-            enabled = false;
-        }
-
-        public void StartPatrolling()
-        {
-            enabled = true;
+            base.StartBehavior();
             agent.NavMeshNavMeshAgent.isStopped = false;
             isPatrolling = true;
             StartCoroutine(Patrol_CO());
@@ -57,12 +52,12 @@ namespace AI
             }
         }
 
-        public void StopPatrolling()
+        public override void StopBehavior()
         {
             isPatrolling = false;
             StopAllCoroutines();
             agent.NavMeshNavMeshAgent.isStopped = true;
-            enabled = false;
+            base.StopBehavior();
         }
     }
 }
