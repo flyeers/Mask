@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 1622734284146376773}
   - component: {fileID: 8016577097966877709}
   - component: {fileID: 2342521795293976020}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MovableSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
