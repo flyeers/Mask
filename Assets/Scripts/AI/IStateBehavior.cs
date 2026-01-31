@@ -4,5 +4,6 @@ namespace AI
     {
         public void StartBehavior();
         public void StopBehavior();
+        public bool Completed();
     }
 }
