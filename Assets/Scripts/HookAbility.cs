@@ -17,6 +17,7 @@ public class HookAbility : MonoBehaviour
     private PlayerInputController _playerInputController;
     private ThirdPersonController _thirdPersonController;
     private Animator _animator;
+    private Transform _originalParent;
 
     private void Awake()
     {
@@ -79,6 +80,7 @@ public class HookAbility : MonoBehaviour
         _lock = false;
         
         _thirdPersonController.EnableAllMovement(true);
+        _animator.SetBool(Hook, false);
     }
 
     private void ReleaseHook()
@@ -88,6 +90,7 @@ public class HookAbility : MonoBehaviour
             return;
         }
         
+        transform.SetParent(_originalParent, true);
         _animator.SetBool(Hook, false);
         
         var currentProjectile = _currentProjectile;
@@ -98,8 +101,11 @@ public class HookAbility : MonoBehaviour
         _currentProjectile = null;
     }
 
-    private void OnContact()
+    private void OnContact(Transform newParent)
     {
+        _originalParent = transform.parent;
+        transform.SetParent(newParent, true);
+        
         var originalPosition = transform.position;
 
         var end = _currentProjectile.EndPoint - Vector3.up * _upDistance;

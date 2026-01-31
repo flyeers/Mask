@@ -15,3 +15,5 @@ MonoBehaviour:
   Name: Yare
   MaskSprite: {fileID: 1654813905, guid: a1b76e3386d3d93a79bfe49ee4b74546, type: 3}
   AbilityScriptName: SpookyVision
+  MaskSpriteRight: {fileID: 308209528, guid: a1b76e3386d3d93a79bfe49ee4b74546, type: 3}
+  MaskSpriteLeft: {fileID: 308209528, guid: a1b76e3386d3d93a79bfe49ee4b74546, type: 3}

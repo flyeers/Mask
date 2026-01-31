@@ -12,6 +12,8 @@ public class Dash : MonoBehaviour
     private ThirdPersonController thirdPersonController;
     private bool canDash = true;
 
+    [SerializeField] SpriteReproducer dashSprites;
+
 
     private void Awake()
     {
@@ -61,6 +63,7 @@ public class Dash : MonoBehaviour
             if (!Physics.Linecast(gameObject.transform.position, pos))
             {
                 gameObject.transform.position = pos;
+                if(dashSprites) dashSprites.ReproduceSpriteSequence(thirdPersonController.GetLoockDirection());
                 StartCoroutine(CoolDownDash());
             }
             else Debug.Log("Can't dash");

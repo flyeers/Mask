@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 4983502213975606984}
   - component: {fileID: 3823371184454971353}
   - component: {fileID: 5722857614593959502}
+  - component: {fileID: 8742722343365360822}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -248,7 +249,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: decb63290370b9b40b8e6801a76863e4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -311,6 +312,27 @@ MonoBehaviour:
   - {fileID: 4197116809705374668}
   - {fileID: 5650863437559239313}
   speed: 2
+--- !u!65 &8742722343365360822
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3290752375100021503}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.33, z: 0}
 --- !u!1 &3516563876976735510
 GameObject:
   m_ObjectHideFlags: 0

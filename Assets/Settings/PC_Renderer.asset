@@ -22,7 +22,7 @@ MonoBehaviour:
         serializedVersion: 2
         m_Bits: 512
       PassNames: []
-    overrideMaterial: {fileID: -876546973899608171, guid: df8c0336bfaa3e646aa8a94137f34c0b, type: 3}
+    overrideMaterial: {fileID: 2100000, guid: cdc659d13ba539946934da963d50ff36, type: 2}
     overrideMaterialPassIndex: 0
     overrideShader: {fileID: 0}
     overrideShaderPassIndex: 0
@@ -57,19 +57,19 @@ MonoBehaviour:
   m_Active: 1
   settings:
     passTag: NormalTransparent
-    Event: 300
+    Event: 500
     filterSettings:
-      RenderQueueType: 0
+      RenderQueueType: 1
       LayerMask:
         serializedVersion: 2
-        m_Bits: 0
+        m_Bits: 512
       PassNames: []
     overrideMaterial: {fileID: 0}
     overrideMaterialPassIndex: 0
     overrideShader: {fileID: 0}
     overrideShaderPassIndex: 0
     overrideMode: 1
-    overrideDepthState: 0
+    overrideDepthState: 1
     depthCompareFunction: 4
     enableWrite: 1
     stencilSettings:
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.RenderObjects
   m_Active: 1
   settings:
-    passTag: RenderObjects
+    passTag: NormalOpaque
     Event: 300
     filterSettings:
       RenderQueueType: 0
@@ -163,13 +163,13 @@ MonoBehaviour:
   m_AssetVersion: 3
   m_PrepassLayerMask:
     serializedVersion: 2
-    m_Bits: 1143
+    m_Bits: 1399
   m_OpaqueLayerMask:
     serializedVersion: 2
-    m_Bits: 1143
+    m_Bits: 1399
   m_TransparentLayerMask:
     serializedVersion: 2
-    m_Bits: 1143
+    m_Bits: 1399
   m_DefaultStencilState:
     overrideStencilState: 0
     stencilReference: 1
@@ -207,7 +207,7 @@ MonoBehaviour:
         serializedVersion: 2
         m_Bits: 512
       PassNames: []
-    overrideMaterial: {fileID: -876546973899608171, guid: df8c0336bfaa3e646aa8a94137f34c0b, type: 3}
+    overrideMaterial: {fileID: 2100000, guid: cdc659d13ba539946934da963d50ff36, type: 2}
     overrideMaterialPassIndex: 0
     overrideShader: {fileID: 0}
     overrideShaderPassIndex: 0

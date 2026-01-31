@@ -9,7 +9,7 @@ public class HookProjectile : MonoBehaviour
     [SerializeField] private float _upTime;
     [SerializeField] private LayerMask _ceilingLayer;
 
-    public event Action OnContact;
+    public event Action<Transform> OnContact;
     public event Action OnDestroyed;
     
     private Vector3 _origin;
@@ -29,14 +29,17 @@ public class HookProjectile : MonoBehaviour
         {
             _end = _origin + Vector3.up * distance;
 
-            _lineRenderer.SetPosition(0, _origin);
-            _lineRenderer.SetPosition(1, _end);
+            _lineRenderer.SetPosition(0, transform.InverseTransformPoint(_origin));
+            _lineRenderer.SetPosition(1, transform.InverseTransformPoint(_end));
 
             if (Physics.Raycast(_origin, Vector3.up, out var hit, Mathf.Abs(_origin.y - _end.y), _ceilingLayer))
             {
-                OnContact?.Invoke();
+                var newParent = hit.collider.transform;
+                OnContact?.Invoke(newParent);
                 _tween.Kill();
                 _hit = true;
+                
+                transform.SetParent(newParent, true);
             }
 
         }).SetDelay(0.25f).SetEase(Ease.InSine).OnComplete(() =>
@@ -50,7 +53,7 @@ public class HookProjectile : MonoBehaviour
 
     public void UpdateOrigin(float upDistance)
     {
-        var newOrigin = _origin + Vector3.up * upDistance;
+        var newOrigin = transform.InverseTransformPoint(_origin) + Vector3.up * upDistance;
 
         _lineRenderer.SetPosition(0, newOrigin);
     }
