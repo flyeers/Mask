@@ -1,4 +1,4 @@
-using Managers;
+﻿using Managers;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,6 +8,14 @@ public class CollectMask : MonoBehaviour
     [SerializeField] private float secondsToDie = 5f;
 
     [SerializeField] private GameManager gameManager;
+
+    private void Awake()
+    {
+        
+        gameManager = FindFirstObjectByType<GameManager>();
+        if (gameManager == null)
+            Debug.LogError("No hay GameManager en la escena.");
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
