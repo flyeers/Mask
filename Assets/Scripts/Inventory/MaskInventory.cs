@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MaskInventory : MonoBehaviour
 {
     [SerializeField] private List<MaskSO> inventory = new List<MaskSO>();
+    [SerializeField] MaskInventoryUI maskInventoryUI;
 
     private int CurrentItemIndex = -1; 
 
@@ -21,7 +22,7 @@ public class MaskInventory : MonoBehaviour
     public void AddItem(MaskSO maskSO)
     {
         inventory.Add(maskSO);
-
+        if(maskInventoryUI) maskInventoryUI.AddItemUI(maskSO.MaskSprite);
         //ACTIVATE ITEM 
         ActivateItem(maskSO);
     }
@@ -46,6 +47,8 @@ public class MaskInventory : MonoBehaviour
                 }
             }
         }
+
+        if (maskInventoryUI) maskInventoryUI.ActivateItemUI(inventory.IndexOf(maskSO));
     }
     public void NextItem() 
     {
