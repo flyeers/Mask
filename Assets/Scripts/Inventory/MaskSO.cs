@@ -6,4 +6,7 @@ public class MaskSO : ScriptableObject
     public string Name;
     public Sprite MaskSprite;
     public string AbilityScriptName;
+
+    public Sprite MaskSpriteRight;
+    public Sprite MaskSpriteLeft;
 }

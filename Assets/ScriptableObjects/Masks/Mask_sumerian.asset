@@ -15,3 +15,5 @@ MonoBehaviour:
   Name: Sumerian
   MaskSprite: {fileID: 563248900, guid: a1b76e3386d3d93a79bfe49ee4b74546, type: 3}
   AbilityScriptName: Empuje
+  MaskSpriteRight: {fileID: 246634050, guid: a1b76e3386d3d93a79bfe49ee4b74546, type: 3}
+  MaskSpriteLeft: {fileID: 246634050, guid: a1b76e3386d3d93a79bfe49ee4b74546, type: 3}
