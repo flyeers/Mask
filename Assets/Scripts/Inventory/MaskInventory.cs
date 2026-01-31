@@ -86,4 +86,39 @@ public class MaskInventory : MonoBehaviour
         }
     }
 
+    public List<MaskSO> GetInventoryCopy()
+    {
+        return new List<MaskSO>(inventory);
+    }
+
+    public int GetCurrentIndex()
+    {
+        return CurrentItemIndex;
+    }
+
+    public void SetInventory(List<MaskSO> newInventory, int activeIndex)
+    {
+        inventory.Clear();
+        inventory.AddRange(newInventory);
+
+        if (maskInventoryUI)
+        {
+            maskInventoryUI.Clear();
+            foreach (var mask in inventory)
+                maskInventoryUI.AddItemUI(mask.MaskSprite);
+        }
+
+        if(inventory.Count == 0)
+        {
+            CurrentItemIndex = -1;
+            return;
+        }
+
+        if (activeIndex < 0 || activeIndex >= inventory.Count)
+            activeIndex = 0;
+
+        CurrentItemIndex = activeIndex;
+        ActivateItem(inventory[CurrentItemIndex]);
+    }
+
 }

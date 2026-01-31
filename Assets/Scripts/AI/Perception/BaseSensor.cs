@@ -55,7 +55,7 @@ namespace AI.Perception
         }
         protected bool CanIgnore(GameObject sensedObject)
         {
-            Perceivable perceivable = sensedObject.GetComponentInParent<Perceivable>();
+            Perceivable perceivable = sensedObject.GetComponent<Perceivable>();
             if (perceivable == null || !perceivable.enabled)
             {
                 return true;

@@ -18,5 +18,10 @@ namespace AI
         {
             enabled = false;
         }
+
+        public virtual bool Completed()
+        {
+            return true;
+        }
     }
 }

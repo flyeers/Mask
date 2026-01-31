@@ -7,6 +7,7 @@ namespace AI
 {
     public class FollowBehavior : BaseStateBehavior
     {
+        [SerializeField] private float reachedDistance = 0.1f;
         private BaseAgent agent;
 
         bool isFollowing = false;
@@ -48,6 +49,11 @@ namespace AI
             StopAllCoroutines();
             agent.NavMeshNavMeshAgent.isStopped = true;
             base.StopBehavior();
+        }
+
+        public override bool Completed()
+        {
+            return agent.IsCloseToTarget(reachedDistance);
         }
     }
 }

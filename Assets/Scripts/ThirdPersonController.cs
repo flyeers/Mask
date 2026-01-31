@@ -46,6 +46,15 @@ public class ThirdPersonController : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if (maskInventory != null && GameSession.Instance != null)
+        {
+            GameSession.Instance.ApplyTo(maskInventory);
+        }
+    }
+
+
     private void Update()
     {
         if (GravityEnabled)

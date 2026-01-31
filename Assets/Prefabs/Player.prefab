@@ -235,6 +235,8 @@ GameObject:
   - component: {fileID: 3463150131703762602}
   - component: {fileID: 8397988874177324419}
   - component: {fileID: 7184118473559057702}
+  - component: {fileID: 1566961756613870703}
+  - component: {fileID: 6341378786119703642}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -459,6 +461,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1566961756613870703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2383205415837058919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 731881a7de91e0945983020f2177ae41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AI.Perception.Perceivable
+  finalTypeMask: 3
+--- !u!114 &6341378786119703642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2383205415837058919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c06361ecb46d4c41bd0d771b6604f0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Damage.Damageable
 --- !u!1 &2551206505508562695
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,8 +705,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6405725838620975428}
-  - component: {fileID: 5256584312065336100}
-  - component: {fileID: 8106908515459238277}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -704,31 +729,6 @@ Transform:
   - {fileID: 8490934343690893759}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5256584312065336100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5760007815678401651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c06361ecb46d4c41bd0d771b6604f0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Damage.Damageable
---- !u!114 &8106908515459238277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5760007815678401651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731881a7de91e0945983020f2177ae41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AI.Perception.Perceivable
-  finalTypeMask: 3
 --- !u!1 &6952212588869024994
 GameObject:
   m_ObjectHideFlags: 0

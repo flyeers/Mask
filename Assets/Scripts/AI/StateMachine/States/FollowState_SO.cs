@@ -5,9 +5,7 @@ namespace AI.StateMachine.States
     [CreateAssetMenu(fileName = "FollowState_SO", menuName = "Scriptable Objects/FollowState_SO")]
     public class FollowState_SO : State_SO
     {
-        [SerializeField] private bool checkTargetReached = true;
         [SerializeField] private State_SO onTargetReached;
-        [SerializeField] private float reachedDistance = 0.1f;
         public override void Enter(StateContext context)
         {
             Debug.Log("Entered FollowState_SO");
@@ -22,7 +20,7 @@ namespace AI.StateMachine.States
                 return;
             }
 
-            if (checkTargetReached && context.StateMachine.GetOwnerAgent().IsCloseToTarget(reachedDistance))
+            if (context.StateMachine.GetOwnerAgent().FollowBehavior.Completed())
             {
                 context.RequestChangeState?.Invoke(onTargetReached);
                 return;
