@@ -14,8 +14,10 @@ public class MaskInventory : MonoBehaviour
     {
         if (inventory.Count > 0) 
         {
+            if (maskInventoryUI) maskInventoryUI.AddItemUI(inventory[0].MaskSprite);
             ActivateItem(inventory[0]);
             CurrentItemIndex = 0;
+            //SI EMPIEZA CON MAS DE UNA NO VA A FUNCIONAR XD
         }
     }
 
