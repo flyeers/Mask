@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 887d9d8f5e926ef4fa811a1b47f89c14, type: 3}
-  m_Name: FollowState_SO
-  m_EditorClassIdentifier: Assembly-CSharp::AI.StateMachine.States.FollowState_SO
+  m_Script: {fileID: 11500000, guid: 79b72bc0517670d48ad7dd2418e655f3, type: 3}
+  m_Name: AttackState_SO
+  m_EditorClassIdentifier: Assembly-CSharp::AI.StateMachine.States.AttackState_SO
   nextState: {fileID: 11400000, guid: f82f67ebbb948e845884712da64a6a4d, type: 2}
-  onTargetReached: {fileID: 11400000, guid: 046fe370d8db0e247a4c0f219f2c735b, type: 2}
-  reachedDistance: 1

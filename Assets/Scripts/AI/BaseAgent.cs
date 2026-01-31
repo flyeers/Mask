@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
+using Damage;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace AI
 {
     [RequireComponent(typeof(NavMeshAgent))]
-    public class BaseAgent : MonoBehaviour
+    public class BaseAgent : MonoBehaviour,IDamageable
     {
         [SerializeField]
         private NavMeshAgent navMeshAgent;
@@ -15,17 +16,20 @@ namespace AI
         private GameObject currentTarget;
         private PatrolBehavior patrolBehavior;
         private FollowBehavior followBehavior;
+        private AttackBehavior attackBehavior;
         
         public GameObject CurrentTarget => currentTarget;
         public NavMeshAgent NavMeshNavMeshAgent => navMeshAgent;
         public PatrolBehavior PatrolBehavior => patrolBehavior;
         public FollowBehavior FollowBehavior => followBehavior;
+        public AttackBehavior AttackBehavior => attackBehavior;
 
         bool isForgetting = false;
         private void Awake()
         {
             patrolBehavior = GetComponent<PatrolBehavior>();
             followBehavior = GetComponent<FollowBehavior>();
+            attackBehavior = GetComponent<AttackBehavior>();
         }
 
         private void Update()
@@ -40,7 +44,7 @@ namespace AI
 
         private void FixedUpdate()
         {
-            if(Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit))
+            if(Physics.Raycast(transform.position, transform.forward, out RaycastHit hit))
             {
                 StopAllCoroutines();
                 isForgetting = false;
@@ -70,5 +74,13 @@ namespace AI
             if (currentTarget == null) return false;
             return (CurrentTarget.transform.position - transform.position).sqrMagnitude <= minDistance * minDistance;
         }
+
+        public void Die()
+        {
+            Destroy(gameObject);
+            OnDeath?.Invoke();  
+        }
+
+        public event Action OnDeath;
     }
 }
