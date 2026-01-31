@@ -7,12 +7,13 @@ public class MaskInventoryUI : MonoBehaviour
     [SerializeField] private Image[] masks;
     [SerializeField] float alphaUnselected = 0.5f;
 
-    private int currentMascksCount = 0;
+    private int currentMascksCount = -1;
 
     public void AddItemUI(Sprite MaskSprite) 
     {
         currentMascksCount++;
-        masks[currentMascksCount].enabled = true;
+        if (currentMascksCount >= masks.Length) return;
+        masks[currentMascksCount].gameObject.SetActive(true);
         if(MaskSprite) masks[currentMascksCount].sprite = MaskSprite;
     }
 
@@ -20,7 +21,7 @@ public class MaskInventoryUI : MonoBehaviour
     {
         if (index >= masks.Length || index > currentMascksCount) return;
 
-        for (int i = 0; i < currentMascksCount; i++)
+        for (int i = 0; i <= currentMascksCount; i++)
         {
             Color c = masks[i].color;
             if (masks[i].enabled && i != index) // not active
