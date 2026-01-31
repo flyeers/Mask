@@ -60,6 +60,7 @@ public class HookAbility : MonoBehaviour
             return;
         }
         
+        _animator.SetTrigger("FireHook");
         _animator.SetBool(Hook, true);
         
         _lock = true;
