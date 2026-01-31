@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 199e97923be237e4bb1fde52eec3ab0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dash
-  dashMovement: 2
+  dashMovement: 5
   dashDuration: 0.25
   coolDown: 0.5
 --- !u!114 &3224848650473061281
@@ -339,8 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95852d03e68f84e4d8690b687d287c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaskInventory
-  inventory:
-  - {fileID: 11400000, guid: c478f9178de7113409e19038277271ec, type: 2}
+  inventory: []
   maskInventoryUI: {fileID: 0}
 --- !u!54 &7184118473559057702
 Rigidbody:
