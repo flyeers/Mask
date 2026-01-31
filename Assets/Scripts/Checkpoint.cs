@@ -1,10 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CheckpointLoadScene : MonoBehaviour
+public class Checkpoint : MonoBehaviour
 {
-    [SerializeField] private string sceneToLoad;
-
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
@@ -14,7 +12,5 @@ public class CheckpointLoadScene : MonoBehaviour
         {
             GameSession.Instance.CaptureFrom(inv);
         }
-
-        SceneManager.LoadScene(sceneToLoad);
     }
 }

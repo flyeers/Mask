@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 394926275782005439}
   - component: {fileID: 7596132381589257359}
   - component: {fileID: 7750208877164415704}
+  - component: {fileID: 3768385730135338556}
   m_Layer: 0
   m_Name: Guard
   m_TagString: Untagged
@@ -116,7 +117,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -187,7 +188,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AI.BaseAgent
   navMeshAgent: {fileID: 5800133217385945684}
   perceptionBrain: {fileID: 7750208877164415704}
-  rotationSpeed: 2
+  patrolBehavior: {fileID: 40655598134342513}
+  followBehavior: {fileID: 394926275782005439}
+  attackBehavior: {fileID: 7596132381589257359}
 --- !u!114 &40655598134342513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84b9e7c518408b24694b882c674a3708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AI.FollowBehavior
+  reachedDistance: 2.5
 --- !u!114 &7596132381589257359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +261,20 @@ MonoBehaviour:
   sensors:
   - {fileID: 8564976170543243661}
   - {fileID: 7729415579237203249}
+--- !u!114 &3768385730135338556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226502758788493206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 834f23c124abe61449973b2d4d3886a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RotateToAgentDirection
+  navMeshAgent: {fileID: 5800133217385945684}
+  rotationSpeed: 2
 --- !u!1 &3660761171087728567
 GameObject:
   m_ObjectHideFlags: 0
