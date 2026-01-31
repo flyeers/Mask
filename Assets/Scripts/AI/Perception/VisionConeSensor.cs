@@ -19,7 +19,7 @@ namespace AI.Perception
         {
             if (currentTarget == null && !CanIgnore(other.gameObject))
             {
-                if (CheckCone(other.gameObject.transform.position))
+                if (CheckCone(other.gameObject.transform.position) && CheckLineOfSight(other.gameObject))
                 {
                     currentTarget = other.gameObject;
                     NotifySensed();
@@ -31,7 +31,7 @@ namespace AI.Perception
         {
             if (other.gameObject == currentTarget)
             {
-                if (!CheckCone(currentTarget.transform.position))
+                if (!CheckCone(currentTarget.transform.position) || !CheckLineOfSight(currentTarget))
                 {
                     currentTarget = null;
                     NotifyForgotten();
@@ -40,7 +40,7 @@ namespace AI.Perception
             }
             if (currentTarget == null && !CanIgnore(other.gameObject))
             {
-                if (CheckCone(other.gameObject.transform.position))
+                if (CheckCone(other.gameObject.transform.position) && CheckLineOfSight(other.gameObject))
                 {
                     currentTarget = other.gameObject;
                     NotifySensed();
@@ -66,6 +66,5 @@ namespace AI.Perception
             float angle = Vector3.Angle(transform.forward, direction);
             return angle <= fovAngle;
         }
-        
     }
 }

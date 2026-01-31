@@ -69,5 +69,18 @@ namespace AI.Perception
                     return (sensedTypesMask & perceivable.TypeMask) == 0;
             }
         }
+        protected bool CheckLineOfSight(GameObject targetCandidate)
+        {
+            RaycastHit hit;
+            Physics.Raycast(transform.position,targetCandidate.transform.position-transform.position,out hit);
+            if (Physics.Raycast(transform.position, targetCandidate.transform.position - transform.position, out hit))
+            {
+                if (hit.collider.gameObject == targetCandidate)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
