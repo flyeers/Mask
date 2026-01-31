@@ -140,9 +140,10 @@ GameObject:
   - component: {fileID: 5634384414008628928}
   - component: {fileID: 3367463783777985464}
   - component: {fileID: 3224848650473061281}
+  - component: {fileID: 2930271442840328297}
+  - component: {fileID: 3463150131703762602}
   - component: {fileID: 8397988874177324419}
   - component: {fileID: 7184118473559057702}
-  - component: {fileID: 3463150131703762602}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -273,8 +274,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 199e97923be237e4bb1fde52eec3ab0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dash
-  dashMovement: 2
+  dashMovement: 5
   dashDuration: 0.25
+  coolDown: 0.5
 --- !u!114 &3224848650473061281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +293,40 @@ MonoBehaviour:
   _projectileSpawnPoint: {fileID: 5068335511702601785}
   _upDistance: 2
   _upTime: 0.25
+--- !u!114 &2930271442840328297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2383205415837058919}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29382ef5ab48f064bb530c29f64b8c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpookyVision
+  tagName: spooky
+--- !u!114 &3463150131703762602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2383205415837058919}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a911428ef1d13d8448f64e941a262b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Empuje
+  playerInputController: {fileID: 5443529984558159663}
+  sensor: {fileID: 1622734284146376773}
+  characterController: {fileID: 8716550408377435638}
+  thirdPersonController: {fileID: 5634384414008628928}
+  distanciaAgarre: 0.9
+  velocidadRecolocar: 6
+  tolerancia: 0.05
+  velocidadArrastre: 0.8
+  aceleracionArrastre: 10
 --- !u!114 &8397988874177324419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,8 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95852d03e68f84e4d8690b687d287c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaskInventory
-  inventory:
-  - {fileID: 11400000, guid: c478f9178de7113409e19038277271ec, type: 2}
+  inventory: []
   maskInventoryUI: {fileID: 0}
 --- !u!54 &7184118473559057702
 Rigidbody:
@@ -333,27 +368,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3463150131703762602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2383205415837058919}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a911428ef1d13d8448f64e941a262b8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Empuje
-  playerInputController: {fileID: 5443529984558159663}
-  sensor: {fileID: 1622734284146376773}
-  characterController: {fileID: 8716550408377435638}
-  thirdPersonController: {fileID: 5634384414008628928}
-  distanciaAgarre: 0.9
-  velocidadRecolocar: 6
-  tolerancia: 0.05
-  velocidadArrastre: 0.8
-  aceleracionArrastre: 10
 --- !u!1 &2551206505508562695
 GameObject:
   m_ObjectHideFlags: 0

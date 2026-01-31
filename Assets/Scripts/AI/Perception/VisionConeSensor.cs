@@ -61,8 +61,10 @@ namespace AI.Perception
         {
             if (!CheckHeight(targetPosition)) return false;
             Vector3 direction = targetPosition - transform.position;
-            float dot = Vector3.Dot(transform.forward, direction.normalized);
-            return dot >= cosHalfFov;
+            // float dot = Vector3.Dot(transform.forward, direction.normalized);
+            // return dot >= cosHalfFov;
+            float angle = Vector3.Angle(transform.forward, direction);
+            return angle <= fovAngle;
         }
         
     }
