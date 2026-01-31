@@ -56,7 +56,7 @@ public class Axe : MonoBehaviour
         { 
             if (other.GetComponentInParent<Damageable>())
             {
-                //other.GetComponentInParent<Damageable>().Die();
+                other.GetComponentInParent<Damageable>().Die();
                 Debug.Log("die");
             } 
         }      
