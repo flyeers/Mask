@@ -6,9 +6,11 @@ public class Dash : MonoBehaviour
 {
     [SerializeField] private float dashMovement = 2f;
     [SerializeField] private float dashDuration = 0.25f;
+    [SerializeField] private float coolDown = 0.5f;
 
     private PlayerInputController playerInputController;
     private ThirdPersonController thirdPersonController;
+    private bool canDash = true;
 
 
     private void Awake()
@@ -40,20 +42,24 @@ public class Dash : MonoBehaviour
 
     private void DashAction()
     {
-        StartCoroutine(WaitDash());
+        if (canDash) 
+        { 
+            StartCoroutine(WaitDash());
 
-        Vector3 pos = gameObject.transform.position;
-        if (thirdPersonController.GetLoockDirection()) //right
-        {
-            pos.x += dashMovement;
+            Vector3 pos = gameObject.transform.position;
+            if (thirdPersonController.GetLoockDirection()) //right
+            {
+                pos.x += dashMovement;
 
+            }
+            else 
+            {
+                pos.x -= dashMovement;
+            }
+            gameObject.transform.position = pos;
+
+            StartCoroutine(CoolDownDash());
         }
-        else 
-        {
-            pos.x -= dashMovement;
-        }
-        gameObject.transform.position = pos;
-
     }
 
     IEnumerator WaitDash() 
@@ -61,5 +67,12 @@ public class Dash : MonoBehaviour
         thirdPersonController.SetCanMove(false);
         yield return new WaitForSeconds(dashDuration);
         thirdPersonController.SetCanMove(true);
+    }
+
+    IEnumerator CoolDownDash() 
+    {
+        canDash = false;
+        yield return new WaitForSeconds(coolDown);
+        canDash = true;
     }
 }

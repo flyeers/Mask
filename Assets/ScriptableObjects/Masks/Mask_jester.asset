@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Mask_jester
   m_EditorClassIdentifier: Assembly-CSharp::MaskSO
   Name: Jester
-  MaskSprite: {fileID: 0}
+  MaskSprite: {fileID: 2049110286, guid: a1b76e3386d3d93a79bfe49ee4b74546, type: 3}
   AbilityScriptName: Dash

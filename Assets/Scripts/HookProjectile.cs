@@ -39,7 +39,7 @@ public class HookProjectile : MonoBehaviour
                 _hit = true;
             }
 
-        }).SetEase(Ease.InSine).OnComplete(() =>
+        }).SetDelay(0.25f).SetEase(Ease.InSine).OnComplete(() =>
         {
             if (!_hit)
             {

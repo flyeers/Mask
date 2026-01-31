@@ -4,6 +4,8 @@ using Input;
 
 public class HookAbility : MonoBehaviour
 {
+    private static readonly int Hook = Animator.StringToHash("Hook");
+    
     [SerializeField] private HookProjectile _projectilePrefab;
     [SerializeField] private Transform _projectileSpawnPoint;
     [SerializeField] private float _upDistance;
@@ -14,11 +16,13 @@ public class HookAbility : MonoBehaviour
     private HookProjectile _currentProjectile;
     private PlayerInputController _playerInputController;
     private ThirdPersonController _thirdPersonController;
+    private Animator _animator;
 
     private void Awake()
     {
         _playerInputController = GetComponent<PlayerInputController>();
         _thirdPersonController = GetComponent<ThirdPersonController>();
+        _animator = GetComponentInChildren<Animator>();
     }
 
     private void OnEnable()
@@ -56,6 +60,9 @@ public class HookAbility : MonoBehaviour
             return;
         }
         
+        _animator.SetTrigger("FireHook");
+        _animator.SetBool(Hook, true);
+        
         _lock = true;
         _currentProjectile = Instantiate(_projectilePrefab);
         _currentProjectile.transform.position = _projectileSpawnPoint.position;
@@ -80,6 +87,8 @@ public class HookAbility : MonoBehaviour
         {
             return;
         }
+        
+        _animator.SetBool(Hook, false);
         
         var currentProjectile = _currentProjectile;
         currentProjectile.OnContact -= OnContact;
