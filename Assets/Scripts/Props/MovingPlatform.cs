@@ -7,6 +7,7 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private float speed = 2f;      // Movement speed
 
     private int currentPointIndex = 0;
+    private CharacterController characterController = null;
 
     void Update()
     {
@@ -19,7 +20,7 @@ public class MovingPlatform : MonoBehaviour
             points[currentPointIndex].position,
             speed * Time.deltaTime
         );
-
+        if(characterController) characterController.Move((points[currentPointIndex].position - transform.position).normalized * speed * Time.deltaTime);
         // Check if the object reached the point
         if (Vector3.Distance(transform.position, points[currentPointIndex].position) < 0.1f)
         {
@@ -30,6 +31,24 @@ public class MovingPlatform : MonoBehaviour
             {
                 currentPointIndex = 0;
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            //other.gameObject.transform.parent.SetParent(transform);
+            other.gameObject.TryGetComponent<CharacterController>(out characterController);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            //other.gameObject.transform.parent.SetParent(null);
+            characterController = null;
         }
     }
 }
