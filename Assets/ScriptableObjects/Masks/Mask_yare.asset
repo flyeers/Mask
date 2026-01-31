@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Mask_yare
   m_EditorClassIdentifier: Assembly-CSharp::MaskSO
   Name: Yare
-  MaskSprite: {fileID: 0}
+  MaskSprite: {fileID: 1654813905, guid: a1b76e3386d3d93a79bfe49ee4b74546, type: 3}
   AbilityScriptName: SpookyVision
