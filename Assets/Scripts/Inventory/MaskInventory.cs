@@ -23,6 +23,8 @@ public class MaskInventory : MonoBehaviour
 
     public void AddItem(MaskSO maskSO)
     {
+        if (inventory.Contains(maskSO)) return; //has mask allready 
+
         inventory.Add(maskSO);
         if(maskInventoryUI) maskInventoryUI.AddItemUI(maskSO.MaskSprite);
         //ACTIVATE ITEM 
