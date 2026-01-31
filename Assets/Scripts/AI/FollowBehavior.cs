@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 namespace AI
 {
-    public class FollowBehavior : MonoBehaviour
+    public class FollowBehavior : BaseStateBehavior
     {
         private BaseAgent agent;
 
@@ -15,15 +15,10 @@ namespace AI
         {
             agent = GetComponent<BaseAgent>();
         }
-
-        private void Start()
+        
+        public override void StartBehavior()
         {
-            enabled = false;
-        }
-
-        public void StartFollowing()
-        {
-            enabled = true;
+            base.StartBehavior();
             agent.NavMeshNavMeshAgent.isStopped = false;
             isFollowing = true;
             StartCoroutine(Follow_CO());
@@ -47,12 +42,12 @@ namespace AI
             }
         }
 
-        public void StopFollowing()
+        public override void StopBehavior()
         {
             isFollowing = false;
             StopAllCoroutines();
             agent.NavMeshNavMeshAgent.isStopped = true;
-            enabled = false;
+            base.StopBehavior();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace AI.StateMachine.States
         public override void Enter(StateContext context)
         {
             Debug.Log("Entering PatrolState");
-            context.StateMachine.GetOwnerAgent().PatrolBehavior.StartPatrolling();
+            context.StateMachine.GetOwnerAgent().PatrolBehavior.StartBehavior();
         }
 
         public override void Execute(StateContext context, float deltaTime)
@@ -22,7 +22,7 @@ namespace AI.StateMachine.States
         public override void Exit(StateContext context)
         {
             Debug.Log("Exit PatrolState");
-            context.StateMachine.GetOwnerAgent().PatrolBehavior.StopPatrolling();
+            context.StateMachine.GetOwnerAgent().PatrolBehavior.StopBehavior();
         }
     }
 }

@@ -1,12 +1,34 @@
+using System;
 using Damage;
 using UnityEngine;
 
-public class AttackBehavior : MonoBehaviour
+namespace AI
 {
-    public void AttackTarget(IDamageable target)
+    public class AttackBehavior : BaseStateBehavior
     {
-        if (target == null) return;
+        private BaseAgent agent;
+
+        private void Awake()
+        {
+            agent = GetComponent<BaseAgent>();
+        }
+
+        public void AttackTarget(IDamageable target)
+        {
+            if (target == null) return;
         
-        target.Die();
+            target.Die();
+        }
+
+        public override void StartBehavior()
+        {
+            base.StartBehavior();
+            AttackTarget(agent.CurrentTarget.GetComponentInParent<IDamageable>());
+        }
+
+        public override void StopBehavior()
+        {
+            base.StopBehavior();
+        }
     }
 }

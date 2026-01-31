@@ -7,7 +7,6 @@ using UnityEngine.AI;
 
 namespace AI
 {
-    [RequireComponent(typeof(NavMeshAgent))]
     public class BaseAgent : MonoBehaviour,IDamageable
     {
         [SerializeField]
@@ -15,35 +14,21 @@ namespace AI
         [SerializeField]
         private PerceptionBrain perceptionBrain;
         [SerializeField]
-        private float rotationSpeed = 2f;
+        private BaseStateBehavior patrolBehavior;
+        [SerializeField]
+        private BaseStateBehavior followBehavior;
+        [SerializeField]
+        private BaseStateBehavior attackBehavior;
+        
         private GameObject currentTarget;
-        private PatrolBehavior patrolBehavior;
-        private FollowBehavior followBehavior;
-        private AttackBehavior attackBehavior;
         
         public GameObject CurrentTarget => perceptionBrain.GetCurrentTarget();
         public NavMeshAgent NavMeshNavMeshAgent => navMeshAgent;
-        public PatrolBehavior PatrolBehavior => patrolBehavior;
-        public FollowBehavior FollowBehavior => followBehavior;
-        public AttackBehavior AttackBehavior => attackBehavior;
+        public IStateBehavior PatrolBehavior => patrolBehavior;
+        public IStateBehavior FollowBehavior => followBehavior;
+        public IStateBehavior AttackBehavior => attackBehavior;
 
         bool isForgetting = false;
-        private void Awake()
-        {
-            patrolBehavior = GetComponent<PatrolBehavior>();
-            followBehavior = GetComponent<FollowBehavior>();
-            attackBehavior = GetComponent<AttackBehavior>();
-        }
-
-        private void Update()
-        {
-            if (navMeshAgent.velocity.sqrMagnitude > 0 && navMeshAgent.velocity != Vector3.zero) {
-                Vector3 direction = navMeshAgent.velocity.normalized;
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 
-                    rotationSpeed * Time.deltaTime);
-            }
-        }
 
         private void FixedUpdate()
         {

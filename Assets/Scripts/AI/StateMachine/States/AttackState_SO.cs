@@ -9,7 +9,7 @@ namespace AI.StateMachine.States
         public override void Enter(StateContext context)
         {
             Debug.Log("Enter Attack");
-            context.StateMachine.GetOwnerAgent().AttackBehavior.AttackTarget(context.StateMachine.GetOwnerAgent().CurrentTarget.GetComponentInParent<IDamageable>());
+            context.StateMachine.GetOwnerAgent().AttackBehavior.StartBehavior();
             context.RequestChangeState?.Invoke(nextState);
         }
 
