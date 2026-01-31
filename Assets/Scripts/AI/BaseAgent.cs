@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using AI.Perception;
 using Damage;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,13 +13,15 @@ namespace AI
         [SerializeField]
         private NavMeshAgent navMeshAgent;
         [SerializeField]
+        private PerceptionBrain perceptionBrain;
+        [SerializeField]
         private float rotationSpeed = 2f;
         private GameObject currentTarget;
         private PatrolBehavior patrolBehavior;
         private FollowBehavior followBehavior;
         private AttackBehavior attackBehavior;
         
-        public GameObject CurrentTarget => currentTarget;
+        public GameObject CurrentTarget => perceptionBrain.GetCurrentTarget();
         public NavMeshAgent NavMeshNavMeshAgent => navMeshAgent;
         public PatrolBehavior PatrolBehavior => patrolBehavior;
         public FollowBehavior FollowBehavior => followBehavior;
