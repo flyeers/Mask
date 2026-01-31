@@ -8,6 +8,16 @@ namespace AI.Perception
         public event Action<ISensor> Sensed;
         public event Action<ISensor> Forgotten;
 
+        protected enum EMaskMode
+        {
+            Any = 0,
+            All = 1
+        }
+        [SerializeField]
+        protected EMaskMode maskMode = EMaskMode.Any;
+        [SerializeField] 
+        protected Perceivable.EEntityType sensedTypesMask;
+
         [Header("ONLY DEBUG")]
         [SerializeField]
         protected GameObject currentTarget = null;
@@ -42,6 +52,22 @@ namespace AI.Perception
         protected bool CheckHeight(Vector3 targetPosition)
         {
             return targetPosition.y > transform.position.y + minYOffset && targetPosition.y < transform.position.y + maxYOffset;
+        }
+        protected bool CanIgnore(GameObject sensedObject)
+        {
+            Perceivable perceivable = sensedObject.GetComponentInParent<Perceivable>();
+            if (perceivable == null || !perceivable.enabled)
+            {
+                return false;
+            }
+            switch (maskMode)
+            {
+                case EMaskMode.All:
+                    return (sensedTypesMask & perceivable.TypeMask) != sensedTypesMask;
+                case EMaskMode.Any:
+                default:
+                    return (sensedTypesMask & perceivable.TypeMask) == 0;
+            }
         }
     }
 }
