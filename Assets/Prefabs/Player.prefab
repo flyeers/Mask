@@ -406,6 +406,8 @@ MonoBehaviour:
   useAbilityInputAction: {fileID: 11400000, guid: a16d7e187a1759e4eb20569f044bcb3b, type: 2}
   moveInputAction: {fileID: 11400000, guid: 636bef08639003c42a260463b56303ad, type: 2}
   jumpInputAction: {fileID: 11400000, guid: be5911db32aefa64f89c1093e8f1bfa7, type: 2}
+  previousInputAction: {fileID: 11400000, guid: e21d20d9ca2e9174d940314dde03046f, type: 2}
+  nextInputAction: {fileID: 11400000, guid: ad95f1afbb3a92c4599ee975df392a9f, type: 2}
 --- !u!114 &5634384414008628928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,6 +422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ThirdPersonController
   characterController: {fileID: 8716550408377435638}
   _playerInputController: {fileID: 5443529984558159663}
+  maskInventory: {fileID: 8397988874177324419}
   speed: 7
   gravity: -9.81
   jumpHeight: 1.2

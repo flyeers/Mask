@@ -12,10 +12,14 @@ namespace Input
         [SerializeField] private InputActionReference_SO useAbilityInputAction;
         [SerializeField] private InputActionReference_SO moveInputAction;
         [SerializeField] private InputActionReference_SO jumpInputAction;
+        [SerializeField] private InputActionReference_SO previousInputAction;
+        [SerializeField] private InputActionReference_SO nextInputAction;
         private PlayerInput m_playerInput;
 
         public event Action UseAbility;
         public event Action Jump;
+        public event Action Previous;
+        public event Action Next;
         public event Action Move;
 
         private void Awake()
@@ -47,6 +51,22 @@ namespace Input
                 if (context.performed)
                 {
                     Jump?.Invoke();
+                }
+            }
+
+            if (context.action == previousInputAction.InputAction)
+            {
+                if (context.performed)
+                {
+                    Previous?.Invoke();
+                }
+            }
+
+            if (context.action == nextInputAction.InputAction)
+            {
+                if (context.performed)
+                {
+                    Next?.Invoke();
                 }
             }
         }

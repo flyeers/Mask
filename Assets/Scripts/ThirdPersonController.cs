@@ -5,6 +5,7 @@ public class ThirdPersonController : MonoBehaviour
 {
     [SerializeField] private CharacterController characterController;
     [SerializeField] private PlayerInputController _playerInputController;
+    [SerializeField] private MaskInventory maskInventory;
 
     [SerializeField] private float speed = 3.0f;
     [SerializeField] private float gravity = -9.81f; // Added gravity constant
@@ -64,12 +65,25 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (_playerInputController != null)
             _playerInputController.Jump += Jump;
+
+        if (_playerInputController != null)
+            _playerInputController.Previous += Previous;
+
+        if (_playerInputController != null)
+            _playerInputController.Next += Next;
     }
 
     private void OnDisable()
     {
         if (_playerInputController != null)
             _playerInputController.Jump -= Jump;
+
+
+        if (_playerInputController != null)
+            _playerInputController.Previous -= Previous;
+
+        if (_playerInputController != null)
+            _playerInputController.Next -= Next;
     }
 
     private void ApplyGravityAndJump()
@@ -137,5 +151,16 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (!CanMove) return; // no salto mientras arrastro
         jumpRequested = true;
+    }
+
+    private void Previous()
+    {
+        maskInventory.PrevItem();
+    }
+
+    private void Next()
+    {
+        maskInventory.NextItem();
+
     }
 }
