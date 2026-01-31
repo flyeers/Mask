@@ -57,7 +57,8 @@ public class HookAbility : MonoBehaviour
         }
         
         _lock = true;
-        _currentProjectile = Instantiate(_projectilePrefab, _projectileSpawnPoint);
+        _currentProjectile = Instantiate(_projectilePrefab);
+        _currentProjectile.transform.position = _projectileSpawnPoint.position;
         _currentProjectile.OnContact += OnContact;
         _currentProjectile.OnDestroyed += OnProjectileDestroyed;
         
@@ -91,8 +92,11 @@ public class HookAbility : MonoBehaviour
     private void OnContact()
     {
         var originalPosition = transform.position;
+
+        var end = _currentProjectile.EndPoint - Vector3.up * _upDistance;
+        var finalDistance = Mathf.Abs(end.y - _currentProjectile.Origin.y);
         
-        DOVirtual.Float(0f, _upDistance, _upTime, distance =>
+        DOVirtual.Float(0f, finalDistance, _upTime, distance =>
         {
             transform.position = originalPosition + Vector3.up * distance;
             _currentProjectile.UpdateOrigin(distance);

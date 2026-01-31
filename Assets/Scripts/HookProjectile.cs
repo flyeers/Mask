@@ -13,8 +13,12 @@ public class HookProjectile : MonoBehaviour
     public event Action OnDestroyed;
     
     private Vector3 _origin;
+    private Vector3 _end;
     private Tween _tween;
     private bool _hit = false;
+    
+    public Vector3 Origin => _origin;
+    public Vector3 EndPoint => _end;
 
     public void MoveUp()
     {
@@ -23,12 +27,12 @@ public class HookProjectile : MonoBehaviour
         
         _tween = DOVirtual.Float(0f, _upDistance, _upTime, distance =>
         {
-            var end = _origin + Vector3.up * distance;
+            _end = _origin + Vector3.up * distance;
 
             _lineRenderer.SetPosition(0, _origin);
-            _lineRenderer.SetPosition(1, end);
+            _lineRenderer.SetPosition(1, _end);
 
-            if (Physics.Raycast(_origin, Vector3.up, out var hit, Vector3.Distance(_origin, end), _ceilingLayer))
+            if (Physics.Raycast(_origin, Vector3.up, out var hit, Mathf.Abs(_origin.y - _end.y), _ceilingLayer))
             {
                 OnContact?.Invoke();
                 _tween.Kill();
