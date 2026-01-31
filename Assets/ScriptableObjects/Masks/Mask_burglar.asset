@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Mask_burglar
   m_EditorClassIdentifier: Assembly-CSharp::MaskSO
   Name: burglar
-  MaskSprite: {fileID: 563248900, guid: a1b76e3386d3d93a79bfe49ee4b74546, type: 3}
+  MaskSprite: {fileID: -1246148377, guid: a1b76e3386d3d93a79bfe49ee4b74546, type: 3}
   AbilityScriptName: HookAbility
