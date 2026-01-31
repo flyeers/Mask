@@ -157,6 +157,8 @@ public class ThirdPersonController : MonoBehaviour
         
         var horizontalSpeed = new Vector2(currentMovement.x, currentMovement.z).magnitude;
         _animator.SetBool("Move", horizontalSpeed > 0.01f);
+        
+        _animator.SetBool("Grounded", groundedNow);
     }
 
     public bool GetLoockDirection() 
@@ -184,6 +186,7 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (!CanMove) return; // no salto mientras arrastro
         jumpRequested = true;
+        _animator.SetTrigger("Jump");
     }
 
     private void Previous()
