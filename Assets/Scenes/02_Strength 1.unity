@@ -3333,6 +3333,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 433026245}
     m_Modifications:
+    - target: {fileID: 394926275782005439, guid: d2484a44fd9789d4cbd24526be8fcb59, type: 3}
+      propertyPath: reachedDistance
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 949836228314996401, guid: d2484a44fd9789d4cbd24526be8fcb59, type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1226502758788493206, guid: d2484a44fd9789d4cbd24526be8fcb59, type: 3}
       propertyPath: m_Name
       value: Guard
@@ -3376,6 +3384,10 @@ PrefabInstance:
     - target: {fileID: 6897155610403805515, guid: d2484a44fd9789d4cbd24526be8fcb59, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8564976170543243661, guid: d2484a44fd9789d4cbd24526be8fcb59, type: 3}
+      propertyPath: fovAngle
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
