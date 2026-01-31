@@ -323,11 +323,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cef51676264acc4db644f4382599018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AI.Perception.PresenceSensor
+  maskMode: 1
+  sensedTypesMask: 3
   currentTarget: {fileID: 0}
   priority: 0
   minYOffset: -0.5
   maxYOffset: 1.5
-  perceivedTag: Player
 --- !u!1 &3742476245480093331
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,12 +395,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990711e5e14fd6041a7d2c127c3128b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AI.Perception.VisionConeSensor
+  maskMode: 1
+  sensedTypesMask: 3
   currentTarget: {fileID: 0}
   priority: 999
   minYOffset: -0.5
   maxYOffset: 1.5
   fovAngle: 90
-  perceivedTag: Player
 --- !u!1 &4452389485211093780
 GameObject:
   m_ObjectHideFlags: 0

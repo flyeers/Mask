@@ -9,10 +9,6 @@ namespace AI.Perception
         [SerializeField]
         private float fovAngle = 60.0f;
         
-        [SerializeField] 
-        private string perceivedTag = "Player";
-
-        
         private float cosHalfFov;
         private void Awake()
         {
@@ -21,7 +17,7 @@ namespace AI.Perception
 
         private void OnTriggerEnter(Collider other)
         {
-            if (currentTarget == null && other.CompareTag(perceivedTag))
+            if (currentTarget == null && !CanIgnore(other.gameObject))
             {
                 if (CheckCone(other.gameObject.transform.position))
                 {
@@ -42,7 +38,7 @@ namespace AI.Perception
                     return;
                 }
             }
-            if (currentTarget == null && other.CompareTag(perceivedTag))
+            if (currentTarget == null && !CanIgnore(other.gameObject))
             {
                 if (CheckCone(other.gameObject.transform.position))
                 {

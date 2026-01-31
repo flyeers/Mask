@@ -6,12 +6,9 @@ namespace AI.Perception
     [RequireComponent(typeof(SphereCollider))]
     public class PresenceSensor : BaseSensor
     {
-        [SerializeField] 
-        private string perceivedTag = "Player";
-        
         private void OnTriggerEnter(Collider other)
         {
-            if (currentTarget == null && other.CompareTag(perceivedTag) && CheckHeight(other.transform.position))
+            if (currentTarget == null && !CanIgnore(other.gameObject) && CheckHeight(other.transform.position))
             {
                 currentTarget = other.gameObject;
                 NotifySensed();
