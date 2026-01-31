@@ -63,7 +63,7 @@ Transform:
   m_GameObject: {fileID: 2383205415837058919}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.57, z: 3.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -206,6 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MaskInventory
   inventory:
   - {fileID: 11400000, guid: c478f9178de7113409e19038277271ec, type: 2}
+  maskInventoryUI: {fileID: 0}
 --- !u!1 &2669679982255038445
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +381,7 @@ Transform:
   m_GameObject: {fileID: 6952212588869024994}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0003121182, y: -0.99159914, z: 0.12934105, w: -0.001447028}
-  m_LocalPosition: {x: -0.6409677, y: 2.1915512, z: 3.5849729}
+  m_LocalPosition: {x: -0.6504373, y: 2.4597096, z: 0.3160588}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -581,7 +582,7 @@ Transform:
   m_GameObject: {fileID: 8828668250603291023}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00031211827, y: -0.9915991, z: 0.1293411, w: -0.0014470279}
-  m_LocalPosition: {x: -0.6409677, y: 2.1915512, z: 3.5849729}
+  m_LocalPosition: {x: -0.6504373, y: 2.4597096, z: 0.3160588}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
