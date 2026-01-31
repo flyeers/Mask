@@ -56,9 +56,14 @@ public class Dash : MonoBehaviour
             {
                 pos.x -= dashMovement;
             }
-            gameObject.transform.position = pos;
 
-            StartCoroutine(CoolDownDash());
+
+            if (!Physics.Linecast(gameObject.transform.position, pos))
+            {
+                gameObject.transform.position = pos;
+                StartCoroutine(CoolDownDash());
+            }
+            else Debug.Log("Can't dash");
         }
     }
 

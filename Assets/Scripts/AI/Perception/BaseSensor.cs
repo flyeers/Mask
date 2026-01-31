@@ -55,7 +55,7 @@ namespace AI.Perception
         }
         protected bool CanIgnore(GameObject sensedObject)
         {
-            Perceivable perceivable = sensedObject.GetComponentInParent<Perceivable>();
+            Perceivable perceivable = sensedObject.GetComponent<Perceivable>();
             if (perceivable == null || !perceivable.enabled)
             {
                 return true;
@@ -68,6 +68,19 @@ namespace AI.Perception
                 default:
                     return (sensedTypesMask & perceivable.TypeMask) == 0;
             }
+        }
+        protected bool CheckLineOfSight(GameObject targetCandidate)
+        {
+            RaycastHit hit;
+            Physics.Raycast(transform.position,targetCandidate.transform.position-transform.position,out hit);
+            if (Physics.Raycast(transform.position, targetCandidate.transform.position - transform.position, out hit))
+            {
+                if (hit.collider.gameObject == targetCandidate)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

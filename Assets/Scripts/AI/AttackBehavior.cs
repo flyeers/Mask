@@ -23,7 +23,7 @@ namespace AI
         public override void StartBehavior()
         {
             base.StartBehavior();
-            AttackTarget(agent.CurrentTarget.GetComponentInParent<IDamageable>());
+            AttackTarget(agent.CurrentTarget.GetComponent<IDamageable>());
         }
 
         public override void StopBehavior()
