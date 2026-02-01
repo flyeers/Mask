@@ -51,7 +51,8 @@ public class Dash : MonoBehaviour
     private void DashAction()
     {
         if (canDash) 
-        { 
+        {
+            if (!thirdPersonController.CanMove) return;
             StartCoroutine(WaitDash());
 
             Vector3 pos = gameObject.transform.position;

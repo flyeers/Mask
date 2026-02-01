@@ -93,6 +93,7 @@ public class Empuje : MonoBehaviour
 
     private void ToggleAgarrar()
     {
+        if (!thirdPersonController.CanMove) return;
         if (!agarrando)
         {
             Rigidbody basePick = (sensor != null) ? sensor.GetLowestByBounds() : null;
