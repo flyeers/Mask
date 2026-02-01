@@ -1,6 +1,8 @@
 using Input;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public class Dash : MonoBehaviour
 {
@@ -63,13 +65,30 @@ public class Dash : MonoBehaviour
             
             _dashSfx.Play();
 
-            if (!Physics.Linecast(gameObject.transform.position, pos))
+
+            Vector3 origin = gameObject.transform.position;
+            Vector3 direction = pos - origin;
+            float distance = direction.magnitude;
+
+            Color rayColor = Physics.Raycast(origin, direction.normalized, distance)
+                ? Color.red
+                : Color.green;
+
+            Debug.DrawRay(origin, direction.normalized * distance, rayColor, 1f);
+
+            if (!Physics.Raycast(origin, direction.normalized, distance))
             {
                 gameObject.transform.position = pos;
-                if(dashSprites) dashSprites.ReproduceSpriteSequence(thirdPersonController.GetLoockDirection());
+
+                if (dashSprites)
+                    dashSprites.ReproduceSpriteSequence(thirdPersonController.GetLoockDirection());
+
                 StartCoroutine(CoolDownDash());
             }
-            else Debug.Log("Can't dash");
+            else
+            {
+                Debug.Log("Can't dash");
+            }
         }
     }
 

@@ -40,6 +40,7 @@ public class ThirdPersonController : MonoBehaviour
     public bool CanMove { get; set; } = true;
 
     private bool _gravityEnabled = true;
+    public bool ignoreIsGroundede = false;
 
     public bool GravityEnabled
     {
@@ -125,7 +126,7 @@ public class ThirdPersonController : MonoBehaviour
         if (grounded && verticalVelocity < 0f)
             verticalVelocity = groundStick;
 
-        if (jumpRequested && grounded)
+        if (jumpRequested && (grounded || ignoreIsGroundede))
             verticalVelocity = Mathf.Sqrt(2f * jumpHeight * -gravity);
 
         jumpRequested = false;

@@ -55,8 +55,11 @@ public class MovingPlatform : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //other.gameObject.transform.parent.SetParent(transform);
             other.gameObject.TryGetComponent<CharacterController>(out characterController);
+            if (other.gameObject.TryGetComponent<ThirdPersonController>(out ThirdPersonController thirdPersonController)) 
+            {
+                thirdPersonController.ignoreIsGroundede = true;
+            }
         }
     }
 
@@ -64,8 +67,11 @@ public class MovingPlatform : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //other.gameObject.transform.parent.SetParent(null);
             characterController = null;
+            if (other.gameObject.TryGetComponent<ThirdPersonController>(out ThirdPersonController thirdPersonController))
+            {
+                thirdPersonController.ignoreIsGroundede = false;
+            }
         }
     }
 }
