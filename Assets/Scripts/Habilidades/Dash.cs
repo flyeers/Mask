@@ -81,7 +81,8 @@ public class Dash : MonoBehaviour
             if (Physics.Raycast(origin, direction.normalized, out RaycastHit hit, distance))
             {
                 //if (hit.collider.gameObject.layer == axeLayer)
-                if ((axeLayer.value & (1 << hit.collider.gameObject.layer)) != 0)                              
+                //if ((axeLayer.value & (1 << hit.collider.gameObject.layer)) != 0)                              
+                if (axeLayer.value == hit.collider.gameObject.layer)                              
                 {
                     gameObject.transform.position = pos;
                     if (dashSprites)
