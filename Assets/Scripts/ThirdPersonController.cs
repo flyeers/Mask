@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using Input;
 using Unity.Cinemachine;
 
@@ -13,6 +14,9 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField] private SpriteRenderer _playerSpriteRenderer;
     [SerializeField] private SpriteRenderer _currentMaskSpriteRenderer;
     [SerializeField] private SpriteRenderer _oldMaskSpriteRenderer;
+
+    [SerializeField] private FMODUnity.StudioEventEmitter _footstepSfx;
+    [SerializeField] private FMODUnity.StudioEventEmitter _jumpSfx;
 
 
     [SerializeField] private float speed = 3.0f;
@@ -32,6 +36,7 @@ public class ThirdPersonController : MonoBehaviour
     
     private Animator _animator;
 
+    bool firstGrounded = false;
     public bool CanMove { get; set; } = true;
 
     private bool _gravityEnabled = true;
@@ -55,8 +60,15 @@ public class ThirdPersonController : MonoBehaviour
         {
             GameSession.Instance.ApplyTo(maskInventory);
         }
+
+        StartCoroutine(WaitAndGrounded());
     }
 
+    IEnumerator WaitAndGrounded()
+    {
+        yield return new WaitForSeconds(Time.fixedDeltaTime * 2);
+        firstGrounded = true;
+    }
 
     private void Update()
     {
@@ -154,6 +166,8 @@ public class ThirdPersonController : MonoBehaviour
         // 3) ✅ Un solo Move por frame
         CollisionFlags flags = characterController.Move(currentMovement * Time.deltaTime);
 
+        var wasGrounded = characterController.isGrounded;
+
         // 4) Grounded fiable
         bool groundedNow = (flags & CollisionFlags.Below) != 0;
 
@@ -170,6 +184,32 @@ public class ThirdPersonController : MonoBehaviour
         _animator.SetBool("Move", horizontalSpeed > 0.01f);
         
         _animator.SetBool("Grounded", groundedNow);
+
+        if (groundedNow)
+        {
+            if (horizontalSpeed > 0.1f)
+            {
+                if (_footstepSfx != null && !_footstepSfx.IsPlaying())
+                {
+                    _footstepSfx.Play();
+                }
+            }
+            else
+            {
+                if (_footstepSfx != null)
+                {
+                    _footstepSfx.Stop();
+                }
+            }
+        }
+
+        if (!wasGrounded && groundedNow)
+        {
+            if (_footstepSfx != null && !_footstepSfx.IsPlaying())
+            {
+                _footstepSfx.Play();
+            }
+        }
     }
 
     public bool GetLoockDirection() 
@@ -198,6 +238,7 @@ public class ThirdPersonController : MonoBehaviour
         if (!CanMove) return; // no salto mientras arrastro
         jumpRequested = true;
         _animator.SetTrigger("Jump");
+        _jumpSfx.Play();
     }
 
     private void Previous()
@@ -239,5 +280,5 @@ public class ThirdPersonController : MonoBehaviour
             _animator.SetTrigger("ChangeMask");
         }
     }
-    public bool IsGrounded => characterController.isGrounded;
+    public bool IsGrounded => firstGrounded && characterController.isGrounded;
 }
