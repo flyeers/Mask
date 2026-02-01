@@ -244,6 +244,7 @@ public class ThirdPersonController : MonoBehaviour
 
     private void Previous()
     {
+        if (!CanMove) return;
         if (maskInventory.CurrentItemCount < 2)
         {
             return;
@@ -254,6 +255,7 @@ public class ThirdPersonController : MonoBehaviour
 
     private void Next()
     {
+        if (!CanMove) return;
         if (maskInventory.CurrentItemCount < 2)
         {
             return;
@@ -285,6 +287,7 @@ public class ThirdPersonController : MonoBehaviour
 
     public void Caught()
     {
+        CanMove = false;
         _animator.SetTrigger("Caught");
     }
 }

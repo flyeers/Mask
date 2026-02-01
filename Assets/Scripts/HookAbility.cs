@@ -59,6 +59,7 @@ public class HookAbility : MonoBehaviour
 
     private void FireHook()
     {
+        if (!_thirdPersonController.CanMove) return;
         if (_currentProjectile != null)
         {
             return;
