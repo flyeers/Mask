@@ -5095,6 +5095,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8016577097966877709, guid: 27fa54c0d62aa2343a7ca0145ae0b6d2, type: 3}
+      propertyPath: m_Size.x
+      value: 1.27104
+      objectReference: {fileID: 0}
+    - target: {fileID: 8016577097966877709, guid: 27fa54c0d62aa2343a7ca0145ae0b6d2, type: 3}
+      propertyPath: m_Size.z
+      value: 1.5055505
+      objectReference: {fileID: 0}
+    - target: {fileID: 8016577097966877709, guid: 27fa54c0d62aa2343a7ca0145ae0b6d2, type: 3}
+      propertyPath: m_Center.x
+      value: -0.034422874
+      objectReference: {fileID: 0}
+    - target: {fileID: 8016577097966877709, guid: 27fa54c0d62aa2343a7ca0145ae0b6d2, type: 3}
+      propertyPath: m_Center.z
+      value: -0.12599128
+      objectReference: {fileID: 0}
     - target: {fileID: 8397988874177324419, guid: 27fa54c0d62aa2343a7ca0145ae0b6d2, type: 3}
       propertyPath: maskInventoryUI
       value: 
@@ -10417,6 +10433,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SecurityCameraBlock
       objectReference: {fileID: 0}
+    - target: {fileID: 1871305376848670549, guid: ee101178d2771c0499e6d207d98010f6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2284610632185475704, guid: ee101178d2771c0499e6d207d98010f6, type: 3}
       propertyPath: timeBetweenWaypoints
       value: 1.5
@@ -14293,8 +14313,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 442618468937831386, guid: 2f873205af41e974abfc67d7febc57e4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8673742
+      objectReference: {fileID: 0}
+    - target: {fileID: 442618468937831386, guid: 2f873205af41e974abfc67d7febc57e4, type: 3}
       propertyPath: m_Center.x
-      value: 0.25
+      value: 0.004429251
       objectReference: {fileID: 0}
     - target: {fileID: 442618468937831386, guid: 2f873205af41e974abfc67d7febc57e4, type: 3}
       propertyPath: m_Center.y
