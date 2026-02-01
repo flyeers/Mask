@@ -6,6 +6,8 @@ public class SpookyVision : MonoBehaviour
     [SerializeField] string tagName = "spooky";
     [SerializeField] Volume spookyVolume;
     private GameObject[] spookyObjects = { };
+    
+    [SerializeField] private FMODUnity.StudioEventEmitter _spookyVisionSfx;
 
     private void OnEnable()
     {
@@ -25,6 +27,11 @@ public class SpookyVision : MonoBehaviour
 
     private void SetRender(bool render) 
     {
+        if (render)
+        {
+            _spookyVisionSfx.Play();
+        }
+        
         foreach (var obj in spookyObjects) 
         {
             if(obj.TryGetComponent<Renderer>(out Renderer rend)) 
