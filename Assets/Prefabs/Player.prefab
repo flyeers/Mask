@@ -443,9 +443,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 199e97923be237e4bb1fde52eec3ab0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dash
-  dashMovement: 5
+  dashMovement: 6
   dashDuration: 0.25
   coolDown: 0.8
+  axeLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   _dashSfx: {fileID: 1391848901064625888}
   dashSprites: {fileID: 1637581416077495941}
 --- !u!114 &3224848650473061281
