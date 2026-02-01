@@ -11,7 +11,13 @@ public class MovableSensor : MonoBehaviour
 
         Rigidbody rb = other.attachedRigidbody;
         if (rb != null && !Candidates.Contains(rb))
+        {
             Candidates.Add(rb);
+
+            // 🔴 activar highlight
+            var h = rb.GetComponent<MovableHighlight>();
+            if (h != null) h.SetHighlight(true);
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -20,11 +26,15 @@ public class MovableSensor : MonoBehaviour
 
         Rigidbody rb = other.attachedRigidbody;
         if (rb != null)
+        {
             Candidates.Remove(rb);
+
+            // ⚫ desactivar highlight
+            var h = rb.GetComponent<MovableHighlight>();
+            if (h != null) h.SetHighlight(false);
+        }
     }
 
-    // ✅ Devuelve el rigidbody cuya "base" (bounds.min.y) sea la más baja.
-    // Esto evita que pilles la caja de arriba por pivots raros.
     public Rigidbody GetLowestByBounds()
     {
         Rigidbody best = null;
