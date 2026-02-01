@@ -35,7 +35,7 @@ public class AutoCreditsScroll : MonoBehaviour
 
         if (Keyboard.current.enterKey.wasPressedThisFrame || endCredits)
         {
-            SceneManager.LoadScene(sceneIndex);
+            GeneralManager.Instance.SceneController.LoadLevel(sceneIndex);
         }
     }
 
