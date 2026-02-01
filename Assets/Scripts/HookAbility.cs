@@ -60,6 +60,11 @@ public class HookAbility : MonoBehaviour
         {
             return;
         }
+
+        if (!_thirdPersonController.IsGrounded)
+        {
+            return;
+        }
         
         _animator.SetTrigger("FireHook");
         _animator.SetBool(Hook, true);

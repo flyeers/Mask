@@ -239,4 +239,5 @@ public class ThirdPersonController : MonoBehaviour
             _animator.SetTrigger("ChangeMask");
         }
     }
+    public bool IsGrounded => characterController.isGrounded;
 }
