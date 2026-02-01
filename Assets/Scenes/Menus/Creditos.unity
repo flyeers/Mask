@@ -167,10 +167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -745,6 +745,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1429117959
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1901143981637637561, guid: 4378aa76ec89403d2974d697b0ee10ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 48.84868
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901143981637637561, guid: 4378aa76ec89403d2974d697b0ee10ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.78424
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901143981637637561, guid: 4378aa76ec89403d2974d697b0ee10ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 47.94329
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901143981637637561, guid: 4378aa76ec89403d2974d697b0ee10ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901143981637637561, guid: 4378aa76ec89403d2974d697b0ee10ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901143981637637561, guid: 4378aa76ec89403d2974d697b0ee10ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901143981637637561, guid: 4378aa76ec89403d2974d697b0ee10ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901143981637637561, guid: 4378aa76ec89403d2974d697b0ee10ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901143981637637561, guid: 4378aa76ec89403d2974d697b0ee10ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901143981637637561, guid: 4378aa76ec89403d2974d697b0ee10ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785246884267973059, guid: 4378aa76ec89403d2974d697b0ee10ec, type: 3}
+      propertyPath: m_Name
+      value: MenuMusic
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4378aa76ec89403d2974d697b0ee10ec, type: 3}
 --- !u!1 &1953258906
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,3 +937,4 @@ SceneRoots:
   - {fileID: 1953258908}
   - {fileID: 125149848}
   - {fileID: 1212757105}
+  - {fileID: 1429117959}
