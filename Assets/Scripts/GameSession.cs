@@ -34,4 +34,9 @@ public class GameSession : MonoBehaviour
         inventory.SetInventory(CollectedMasks, ActiveMaskIndex);
     }
 
+    public void Clear()
+    {
+        SpawnPointIndex = -1;
+        CollectedMasks.Clear();
+    }
 }
