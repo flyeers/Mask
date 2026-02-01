@@ -1,4 +1,5 @@
-﻿using Managers;
+﻿using System;
+using Managers;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -6,18 +7,21 @@ using UnityEngine;
 public class CollectMask : MonoBehaviour
 {
 
-    [SerializeField] private float secondsToDie = 5f;
+    [SerializeField] private float secondsToDie = 500f;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject messageUIPrefab;
     [TextArea(3, 10)]
     [SerializeField] private string messageText;
 
-    private void Awake()
+    [SerializeField] private bool timerToDie = true;
+
+    private void Start()
     {
-        gameManager = FindFirstObjectByType<GameManager>();
+        gameManager = GeneralManager.Instance.GameManager;
         if (gameManager == null)
             Debug.LogError("No hay GameManager en la escena.");
     }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -39,7 +43,7 @@ public class CollectMask : MonoBehaviour
 
                         } 
 
-                        if (gameManager != null)
+                        if (gameManager != null && timerToDie)
                             gameManager.StartKillCountdown(secondsToDie);
                         else
                             Debug.LogError("GameManager no encontrado en la escena");

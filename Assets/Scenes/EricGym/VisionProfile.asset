@@ -1,5 +1,55 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8835838835368595112
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b2db86121404754db890f4c8dfe81b2, type: 3}
+  m_Name: Bloom
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.Bloom
+  active: 1
+  skipIterations:
+    m_OverrideState: 0
+    m_Value: 1
+  threshold:
+    m_OverrideState: 1
+    m_Value: 0.02
+  intensity:
+    m_OverrideState: 1
+    m_Value: 8
+  scatter:
+    m_OverrideState: 0
+    m_Value: 0.7
+  clamp:
+    m_OverrideState: 0
+    m_Value: 65472
+  tint:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  highQualityFiltering:
+    m_OverrideState: 0
+    m_Value: 0
+  filter:
+    m_OverrideState: 0
+    m_Value: 0
+  downscale:
+    m_OverrideState: 0
+    m_Value: 0
+  maxIterations:
+    m_OverrideState: 0
+    m_Value: 6
+  dirtTexture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+    dimension: 1
+  dirtIntensity:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &-993720862882347070
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -45,6 +95,8 @@ MonoBehaviour:
   - {fileID: 1803105363846394626}
   - {fileID: 4792139586202106657}
   - {fileID: -993720862882347070}
+  - {fileID: -8835838835368595112}
+  - {fileID: 4436662589853622959}
 --- !u!114 &1803105363846394626
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -60,13 +112,13 @@ MonoBehaviour:
   active: 1
   lift:
     m_OverrideState: 1
-    m_Value: {x: 0.6919445, y: 1, z: 0.83716685, w: -0.18871097}
+    m_Value: {x: 0.81096685, y: 1, z: 0.8712714, w: -0.18871097}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 0.81077075, y: 0.7291621, z: 1, w: 0.36394253}
+    m_Value: {x: 0.8439132, y: 1, z: 0.9250236, w: 0.14143932}
   gain:
     m_OverrideState: 1
-    m_Value: {x: 0.8150117, y: 1, z: 0.8051119, w: -0.02695882}
+    m_Value: {x: 0.9134308, y: 1, z: 0.98012704, w: -0.0674141}
 --- !u!114 &3894417868372215691
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -85,13 +137,41 @@ MonoBehaviour:
     m_Value: 4
   intensity:
     m_OverrideState: 1
-    m_Value: 0.8
+    m_Value: 0.3
   response:
     m_OverrideState: 0
     m_Value: 0.8
   texture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
+--- !u!114 &4436662589853622959
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
+  m_Name: ColorAdjustments
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.ColorAdjustments
+  active: 0
+  postExposure:
+    m_OverrideState: 0
+    m_Value: 0
+  contrast:
+    m_OverrideState: 0
+    m_Value: 0
+  colorFilter:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  hueShift:
+    m_OverrideState: 0
+    m_Value: 0
+  saturation:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &4792139586202106657
 MonoBehaviour:
   m_ObjectHideFlags: 3
