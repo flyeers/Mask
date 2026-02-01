@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class SpookyVision : MonoBehaviour
 {
     [SerializeField] string tagName = "spooky";
-
+    [SerializeField] Volume spookyVolume;
     private GameObject[] spookyObjects = { };
 
     private void OnEnable()
@@ -12,11 +13,13 @@ public class SpookyVision : MonoBehaviour
         {
             spookyObjects = GameObject.FindGameObjectsWithTag(tagName);
         }
+        if (spookyVolume) spookyVolume.gameObject.SetActive(true);
         SetRender(true);
     }
 
     private void OnDisable()
     {
+        if (spookyVolume) spookyVolume.gameObject.SetActive(false);
         SetRender(false);
     }
 

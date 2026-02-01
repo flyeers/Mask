@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,14 +6,30 @@ namespace Managers
 {
     public class SceneController : MonoBehaviour
     {
+        private bool fading = false;
         public void ReloadCurrentScene()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            LoadLevel(SceneManager.GetActiveScene().buildIndex);
         }
 
         public void LoadLevel(int sceneIndex)
         {
+            IrisFadeManager.Instance.FadeOutCompleted += InstanceOnFadeOutCompleted;
+            IrisFadeManager.Instance.StartFadeOut();
+            StartCoroutine(LoadLevel_CO(sceneIndex));
+        }
+
+        private IEnumerator LoadLevel_CO(int sceneIndex)
+        {
+            fading = true;
+            yield return new WaitUntil(() => !fading);
             SceneManager.LoadScene(sceneIndex);
+        }
+
+        private void InstanceOnFadeOutCompleted()
+        {
+            fading = false;
+            IrisFadeManager.Instance.FadeOutCompleted -= InstanceOnFadeOutCompleted;
         }
     }
 }

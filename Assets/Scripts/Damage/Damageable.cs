@@ -8,7 +8,6 @@ namespace Damage
 
         public void Die()
         {
-            Destroy(gameObject);
             OnDeath?.Invoke();
         }
 
