@@ -1044,6 +1044,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Guard
       objectReference: {fileID: 0}
+    - target: {fileID: 1292878180324842585, guid: d2484a44fd9789d4cbd24526be8fcb59, type: 3}
+      propertyPath: m_Center.y
+      value: -3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6897155610403805515, guid: d2484a44fd9789d4cbd24526be8fcb59, type: 3}
       propertyPath: m_LocalPosition.x
       value: 28.33
@@ -8218,7 +8222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6770430132252814197, guid: 152812f5ccdbd5a43916f072e8fb9f00, type: 3}
       propertyPath: spawnPointIndex
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
