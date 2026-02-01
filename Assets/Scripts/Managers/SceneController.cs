@@ -11,7 +11,7 @@ namespace Managers
         
         public void ReloadCurrentScene()
         {
-            LoadLevel(SceneManager.GetActiveScene().buildIndex);
+            LoadLevel(SceneManager.GetActiveScene().buildIndex-1);
         }
 
         public void LoadLevel(int sceneIndex)
