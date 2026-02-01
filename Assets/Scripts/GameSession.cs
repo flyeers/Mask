@@ -8,6 +8,8 @@ public class GameSession : MonoBehaviour
     //Datos mantenidos gracias al cum
     public List<MaskSO> CollectedMasks = new List<MaskSO>();
     public int ActiveMaskIndex = -1;
+    
+    public int SpawnPointIndex { get; set; }
 
     private void Awake()
     {

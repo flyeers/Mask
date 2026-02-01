@@ -1,10 +1,17 @@
+using Managers;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class AutoCreditsScroll : MonoBehaviour
 {
-    public float scrollSpeed = 400f; // prueba con 200-800 para UI
+    public float scrollSpeed = 400f; 
+    public float endTime = 10f; 
+    public int sceneIndex = 7; 
 
     private RectTransform rectTransform;
+    private float timer = 0f;
+    private bool endCredits = false;
 
     void Awake()
     {
@@ -13,8 +20,24 @@ public class AutoCreditsScroll : MonoBehaviour
 
     void Update()
     {
-        // suma, no reemplaza
         rectTransform.anchoredPosition += Vector2.up * scrollSpeed * Time.deltaTime;
-        // si quieres que baje en vez de subir: Vector2.down
+
+        if (!endCredits)
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= endTime)
+            {
+                endCredits = true;
+            }
+        }
+
+
+        if (Keyboard.current.enterKey.wasPressedThisFrame || endCredits)
+        {
+            SceneManager.LoadScene(sceneIndex);
+        }
     }
+
+
 }

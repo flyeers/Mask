@@ -1,10 +1,11 @@
-using System;
 using Managers;
 using UnityEngine;
 
 public class LevelLoader : MonoBehaviour
 {
     [SerializeField] private int levelBuildIndex = -1;
+    [SerializeField] private int spawnPointIndex = -1;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
@@ -12,5 +13,7 @@ public class LevelLoader : MonoBehaviour
         {
             GeneralManager.Instance.SceneController.LoadLevel(levelBuildIndex);
         }
+        
+        GameSession.Instance.SpawnPointIndex = spawnPointIndex;
     }
 }

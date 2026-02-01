@@ -356,7 +356,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 10
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8564976170543243661
 MonoBehaviour:
@@ -376,7 +376,7 @@ MonoBehaviour:
   priority: 999
   minYOffset: -0.5
   maxYOffset: 1.5
-  fovAngle: 100
+  fovAngle: 35
 --- !u!1 &4452389485211093780
 GameObject:
   m_ObjectHideFlags: 0
