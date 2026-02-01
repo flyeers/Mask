@@ -9491,10 +9491,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7484621059340655602, guid: 2f873205af41e974abfc67d7febc57e4, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5ba83533d31fb704db05cd36b197e7b8, type: 2}
     - target: {fileID: 7610637929521977820, guid: 2f873205af41e974abfc67d7febc57e4, type: 3}
       propertyPath: m_Name
       value: cajaMovable (1)
@@ -9542,10 +9538,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7610637929521977820, guid: 2f873205af41e974abfc67d7febc57e4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1681904448}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f873205af41e974abfc67d7febc57e4, type: 3}
 --- !u!1 &1626372659
 GameObject:
@@ -9747,27 +9740,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1681904447 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7610637929521977820, guid: 2f873205af41e974abfc67d7febc57e4, type: 3}
-  m_PrefabInstance: {fileID: 1625999548}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1681904448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681904447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a72a9e5f524fc845bcdbe987bcf1ac9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MovableSnap
-  snapMaxOffset: 0.25
-  snapCooldown: 0.15
-  snapToGrid: 0
-  gridSize: 1
 --- !u!1 &1682381801
 GameObject:
   m_ObjectHideFlags: 0

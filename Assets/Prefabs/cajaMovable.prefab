@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 600909643542629500}
   - component: {fileID: 7327459366562096239}
   - component: {fileID: 4430838222860128792}
+  - component: {fileID: 3610677960838215182}
   m_Layer: 0
   m_Name: cajaMovable
   m_TagString: movable
@@ -113,7 +114,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.8, z: 1}
+  m_Size: {x: 1, y: 0.8, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0.5}
 --- !u!54 &600909643542629500
 Rigidbody:
@@ -158,6 +159,22 @@ MonoBehaviour:
   highlightMaterial: {fileID: 2100000, guid: 6fbad120df26dda489c2d46f0b14158a, type: 2}
   useMaterialSwap: 1
 --- !u!114 &4430838222860128792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7610637929521977820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a72a9e5f524fc845bcdbe987bcf1ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovableSnap
+  snapMaxOffset: 0.25
+  snapCooldown: 0.15
+  snapToGrid: 0
+  gridSize: 1
+--- !u!114 &3610677960838215182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
