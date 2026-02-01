@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace AI.Perception
 {
@@ -28,7 +29,10 @@ namespace AI.Perception
         protected float minYOffset = -0.5f;
         [SerializeField]
         protected float maxYOffset = 1.5f;
+        [SerializeField]
+        private NavMeshAgent navMeshAgent;
         
+
         public int GetPriority()
         {
             return priority;
@@ -72,15 +76,32 @@ namespace AI.Perception
         protected bool CheckLineOfSight(GameObject targetCandidate)
         {
             RaycastHit hit;
-            Physics.Raycast(transform.position,targetCandidate.transform.position-transform.position,out hit);
             if (Physics.Raycast(transform.position, targetCandidate.transform.position - transform.position, out hit))
             {
                 if (hit.collider.gameObject == targetCandidate)
                 {
+                    if (navMeshAgent != null)
+                    {
+                        return IsPointAccessible(targetCandidate.transform.position);
+                    }
                     return true;
                 }
             }
             return false;
+        }
+
+        protected bool IsPointAccessible(Vector3 targetPosition)
+        {
+            NavMeshHit hit;
+            bool foundPosition = NavMesh.SamplePosition(targetPosition, out hit, 50f, NavMesh.AllAreas);
+    
+            if (!foundPosition)
+                return false;
+    
+            NavMeshPath path = new NavMeshPath();
+            bool pathFound = NavMesh.CalculatePath(transform.position, hit.position, NavMesh.AllAreas, path);
+    
+            return pathFound && path.status == NavMeshPathStatus.PathComplete;
         }
     }
 }
