@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using Input;
 using Unity.Cinemachine;
 
@@ -32,6 +33,7 @@ public class ThirdPersonController : MonoBehaviour
     
     private Animator _animator;
 
+    bool firstGrounded = false;
     public bool CanMove { get; set; } = true;
 
     private bool _gravityEnabled = true;
@@ -55,8 +57,15 @@ public class ThirdPersonController : MonoBehaviour
         {
             GameSession.Instance.ApplyTo(maskInventory);
         }
+
+        StartCoroutine(WaitAndGrounded());
     }
 
+    IEnumerator WaitAndGrounded()
+    {
+        yield return new WaitForSeconds(Time.fixedDeltaTime * 2);
+        firstGrounded = true;
+    }
 
     private void Update()
     {
@@ -239,5 +248,5 @@ public class ThirdPersonController : MonoBehaviour
             _animator.SetTrigger("ChangeMask");
         }
     }
-    public bool IsGrounded => characterController.isGrounded;
+    public bool IsGrounded => firstGrounded && characterController.isGrounded;
 }
