@@ -386,15 +386,15 @@ RectTransform:
   m_GameObject: {fileID: 523245601}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.100725226, y: 0.10072524, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 689933429}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 31.6, y: -55.9}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -1070}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &523245603
 MonoBehaviour:
@@ -416,10 +416,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\r\nProgramers\r\n\r\nEduardo Rico Manzanera\r\nAndres Mayo \r\nJulia
-    Frutiya\r\nDiego Lobo\nRodrigo Manzano\r\n\r\n\r\nDesigners\r\n\r\nPatricia Salamanca\r\nDiego
-    C\xF3rdoba\r\n\r\n\r\nArt\r\nRodrigo Manzano\r\nAlberte\r\nDaniel\r\nIrene\r\n\r\n\r\nSound\r\nNerea\r\n\r\nTechnical
-    Artist\r\nEric Bataller\n\nQA Tester\nRodrigo Manzano"
+  m_text: "\r\nProgramers\r\n\r\nEduardo Rico\r\nAndres Mayo \r\nJulia Fluiters\r\nDiego
+    Lobo\nRodrigo Manzano\r\n\r\n\r\nDesigners\r\n\r\nPatricia Salamanca\r\nDiego
+    C\xF3rdoba\r\n\r\n\r\nArt\r\nRodrigo Manzano\r\nAlberte D\xEDaz\r\nDaniel Pascual\r\nIrene
+    Rodr\xEDguez\r\n\r\n\r\nSound\r\nNerea Herrero\r\n\r\nTechnical Artist\r\nEric
+    Bataller\n\nQA Tester\nRodrigo Manzano\n\nPlayers\nYou :)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3a619ce160d22924f89a0e8685f5982b, type: 2}
   m_sharedMaterial: {fileID: 4924326690801380685, guid: 3a619ce160d22924f89a0e8685f5982b, type: 2}
@@ -485,7 +486,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -534.4841, y: 0, z: 0, w: -629.4863}
+  m_margin: {x: 0, y: 0, z: 0, w: -629.4863}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -526,15 +527,15 @@ RectTransform:
   m_GameObject: {fileID: 687089533}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 125149848}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -238.272, y: 95.99991}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &687089535
 MonoBehaviour:
@@ -602,16 +603,16 @@ RectTransform:
   m_GameObject: {fileID: 689933428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9.9279995, y: 9.927999, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 523245602}
   m_Father: {fileID: 125149848}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030518, y: -269}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &689933430
 MonoBehaviour:
