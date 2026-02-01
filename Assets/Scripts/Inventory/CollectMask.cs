@@ -45,8 +45,6 @@ public class CollectMask : MonoBehaviour
 
                         if (gameManager != null && timerToDie)
                             gameManager.StartKillCountdown(secondsToDie);
-                        else
-                            Debug.LogError("GameManager no encontrado en la escena");
 
                         Destroy(gameObject);
                     } 

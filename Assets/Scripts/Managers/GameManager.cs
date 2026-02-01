@@ -16,6 +16,8 @@ namespace Managers
         private float timeLeft;
         public bool IsKillCountdownActive => killCoroutine != null;
         public float TimeLeft => timeLeft;
+        
+        private ThirdPersonController _thirdPersonController;
 
         [Header("UI")]
         [SerializeField] private TMP_Text deathCountdownText;
@@ -24,11 +26,13 @@ namespace Managers
         private void Awake()
         {
             playerDamageable.OnDeath += PlayerDamageableOnDeath;
+            _thirdPersonController = playerDamageable.GetComponent<ThirdPersonController>();
             SetCountdownUIVisible(false);
         }
 
         private void PlayerDamageableOnDeath()
         {
+            _thirdPersonController.Caught();
             CancelkillCountdown();
             GeneralManager.Instance.SceneController.ReloadCurrentScene();
         }
