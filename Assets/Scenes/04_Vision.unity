@@ -4412,6 +4412,10 @@ PrefabInstance:
       propertyPath: levelBuildIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6770430132252814197, guid: 152812f5ccdbd5a43916f072e8fb9f00, type: 3}
+      propertyPath: spawnPointIndex
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
