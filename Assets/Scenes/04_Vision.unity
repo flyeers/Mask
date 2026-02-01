@@ -5024,6 +5024,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VisionSpookyVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 6458940214751369167, guid: c59a4a580871d4048bd8a000d3513565, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
