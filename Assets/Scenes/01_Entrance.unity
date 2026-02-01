@@ -20585,6 +20585,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 550035350}
+    - target: {fileID: 5060506555965260465, guid: 5a5902e8e0b50a54aad625d69adc0676, type: 3}
+      propertyPath: messageText
+      value: 'Hook '
+      objectReference: {fileID: 0}
     - target: {fileID: 8494125789978609663, guid: 5a5902e8e0b50a54aad625d69adc0676, type: 3}
       propertyPath: m_Name
       value: Mask_burglar
