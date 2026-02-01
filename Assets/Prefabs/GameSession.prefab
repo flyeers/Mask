@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40931f9cc3038504494f78ed663dc48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  CollectedMasks: []
+  CollectedMasks:
+  - {fileID: 11400000, guid: c478f9178de7113409e19038277271ec, type: 2}
   ActiveMaskIndex: -1

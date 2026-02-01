@@ -86,6 +86,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   messageUIPrefab: {fileID: 6303870084342460274, guid: 319f5125683576d4387cd8a86f6d3da2, type: 3}
   messageText: 'Now you''re a real thief. Use the hook to hide from the guards. '
+  timerToDie: 0
 --- !u!212 &953735835086906135
 SpriteRenderer:
   serializedVersion: 2
