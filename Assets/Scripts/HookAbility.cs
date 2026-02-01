@@ -10,6 +10,9 @@ public class HookAbility : MonoBehaviour
     [SerializeField] private Transform _projectileSpawnPoint;
     [SerializeField] private float _upDistance;
     [SerializeField] private float _upTime;
+    
+    [SerializeField] private FMODUnity.StudioEventEmitter _hookFireSfx;
+    [SerializeField] private FMODUnity.StudioEventEmitter _hookContactSfx;
 
     private bool _lock;
 
@@ -66,6 +69,8 @@ public class HookAbility : MonoBehaviour
             return;
         }
         
+        _hookFireSfx.Play();
+        
         _animator.SetTrigger("FireHook");
         _animator.SetBool(Hook, true);
         
@@ -108,6 +113,8 @@ public class HookAbility : MonoBehaviour
 
     private void OnContact(Transform newParent)
     {
+        _hookContactSfx.Play();
+        
         _originalParent = transform.parent;
         transform.SetParent(newParent, true);
         
