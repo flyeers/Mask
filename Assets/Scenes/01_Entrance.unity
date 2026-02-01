@@ -14570,6 +14570,10 @@ PrefabInstance:
       propertyPath: waitTime
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 7883748057677886110, guid: c217b2bbba04c1c4ca73828f636b800e, type: 3}
+      propertyPath: m_Radius
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20583,7 +20587,7 @@ PrefabInstance:
       objectReference: {fileID: 550035350}
     - target: {fileID: 5060506555965260465, guid: 5a5902e8e0b50a54aad625d69adc0676, type: 3}
       propertyPath: messageText
-      value: 'Press O to Hook!! '
+      value: "Press \u2B55 / LeftClick  to use!! "
       objectReference: {fileID: 0}
     - target: {fileID: 5060506555965260465, guid: 5a5902e8e0b50a54aad625d69adc0676, type: 3}
       propertyPath: secondsToDie
@@ -22951,6 +22955,10 @@ PrefabInstance:
     - target: {fileID: 6845278341749109417, guid: c217b2bbba04c1c4ca73828f636b800e, type: 3}
       propertyPath: waitTime
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883748057677886110, guid: c217b2bbba04c1c4ca73828f636b800e, type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32074,6 +32082,10 @@ PrefabInstance:
       propertyPath: maskInventoryUI
       value: 
       objectReference: {fileID: 1543944914}
+    - target: {fileID: 8397988874177324419, guid: 27fa54c0d62aa2343a7ca0145ae0b6d2, type: 3}
+      propertyPath: inventory.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
