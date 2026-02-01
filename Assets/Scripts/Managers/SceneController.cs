@@ -7,6 +7,8 @@ namespace Managers
     public class SceneController : MonoBehaviour
     {
         private bool fading = false;
+        private bool loading = false;
+        
         public void ReloadCurrentScene()
         {
             LoadLevel(SceneManager.GetActiveScene().buildIndex);
@@ -14,6 +16,12 @@ namespace Managers
 
         public void LoadLevel(int sceneIndex)
         {
+            if (loading)
+            {
+                return;
+            }
+            
+            loading = true;
             IrisFadeManager.Instance.FadeOutCompleted += InstanceOnFadeOutCompleted;
             IrisFadeManager.Instance.StartFadeOut();
             StartCoroutine(LoadLevel_CO(sceneIndex));
