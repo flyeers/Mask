@@ -7,6 +7,8 @@ public class Dash : MonoBehaviour
     [SerializeField] private float dashMovement = 2f;
     [SerializeField] private float dashDuration = 0.25f;
     [SerializeField] private float coolDown = 0.5f;
+    
+    [SerializeField] private FMODUnity.StudioEventEmitter _dashSfx;
 
     private PlayerInputController playerInputController;
     private ThirdPersonController thirdPersonController;
@@ -58,7 +60,8 @@ public class Dash : MonoBehaviour
             {
                 pos.x -= dashMovement;
             }
-
+            
+            _dashSfx.Play();
 
             if (!Physics.Linecast(gameObject.transform.position, pos))
             {
