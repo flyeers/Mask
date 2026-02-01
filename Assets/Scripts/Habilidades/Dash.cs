@@ -1,3 +1,4 @@
+using Damage;
 using Input;
 using System.Collections;
 using Unity.VisualScripting;
@@ -9,6 +10,7 @@ public class Dash : MonoBehaviour
     [SerializeField] private float dashMovement = 2f;
     [SerializeField] private float dashDuration = 0.25f;
     [SerializeField] private float coolDown = 0.5f;
+    [SerializeField] private LayerMask axeLayer;
     
     [SerializeField] private FMODUnity.StudioEventEmitter _dashSfx;
 
@@ -76,7 +78,19 @@ public class Dash : MonoBehaviour
 
             Debug.DrawRay(origin, direction.normalized * distance, rayColor, 1f);
 
-            if (!Physics.Raycast(origin, direction.normalized, distance))
+            if (Physics.Raycast(origin, direction.normalized, out RaycastHit hit, distance))
+            {
+                //if (hit.collider.gameObject.layer == axeLayer)
+                if ((axeLayer & (1 << hit.collider.gameObject.layer)) != 0)                              
+                {
+                    gameObject.transform.position = pos;
+                    if (dashSprites)
+                        dashSprites.ReproduceSpriteSequence(thirdPersonController.GetLoockDirection());
+                    StartCoroutine(WaitDashDie());
+                }
+                else Debug.Log("Can't dash");
+            }
+            else //CAN DASH
             {
                 gameObject.transform.position = pos;
 
@@ -84,10 +98,6 @@ public class Dash : MonoBehaviour
                     dashSprites.ReproduceSpriteSequence(thirdPersonController.GetLoockDirection());
 
                 StartCoroutine(CoolDownDash());
-            }
-            else
-            {
-                Debug.Log("Can't dash");
             }
         }
     }
@@ -97,6 +107,12 @@ public class Dash : MonoBehaviour
         thirdPersonController.SetCanMove(false);
         yield return new WaitForSeconds(dashDuration);
         thirdPersonController.SetCanMove(true);
+    }
+
+    IEnumerator WaitDashDie()
+    {
+        yield return new WaitForSeconds(dashDuration);
+        if (gameObject.TryGetComponent<Damageable>(out Damageable damage)) damage.Die();
     }
 
     IEnumerator CoolDownDash() 

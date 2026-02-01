@@ -124,6 +124,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Axe 01
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6704db13b5e74f34882fa642fe84a4a3, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
