@@ -253,7 +253,7 @@ Transform:
   m_GameObject: {fileID: 2383205415837058919}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.15, z: 3.23}
+  m_LocalPosition: {x: 4.24, y: 6.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -423,7 +423,7 @@ MonoBehaviour:
   distanciaAgarre: 0.9
   velocidadRecolocar: 6
   tolerancia: 0.05
-  velocidadArrastre: 0.8
+  velocidadArrastre: 1.5
   aceleracionArrastre: 10
 --- !u!114 &8397988874177324419
 MonoBehaviour:
@@ -437,8 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95852d03e68f84e4d8690b687d287c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaskInventory
-  inventory:
-  - {fileID: 11400000, guid: c478f9178de7113409e19038277271ec, type: 2}
+  inventory: []
   maskInventoryUI: {fileID: 0}
   thirdPersonController: {fileID: 5634384414008628928}
 --- !u!54 &7184118473559057702
@@ -587,7 +586,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: -4, y: 2.5, z: -10}
+  FollowOffset: {x: -3, y: 2.5, z: -10}
 --- !u!1 &2669679982255038445
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,7 +973,7 @@ Transform:
   m_GameObject: {fileID: 6952212588869024994}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00031211812, y: -0.99159914, z: 0.12934105, w: -0.0014470279}
-  m_LocalPosition: {x: -3.6441755, y: 6.256022, z: 2.4821484}
+  m_LocalPosition: {x: -6.864707, y: 9.191166, z: 9.207551}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1021,7 +1020,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: e11aedadc096e4a41a97f9095d52038d, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -1106,11 +1105,29 @@ MonoBehaviour:
     Enabled: 0
     DefaultMode: 2
   DefaultBlend:
-    Style: 1
-    Time: 1
+    Style: 7
+    Time: 3
     CustomCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -1140,7 +1157,7 @@ Transform:
   m_GameObject: {fileID: 7927125481404407157}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00006719915, y: -0.99892217, z: 0.04639477, w: -0.00144686}
-  m_LocalPosition: {x: 0.34864998, y: 0.65, z: -3.7291899}
+  m_LocalPosition: {x: 0.34864998, y: 0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1267,7 +1284,7 @@ Transform:
   m_GameObject: {fileID: 8828668250603291023}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00031211812, y: -0.99159914, z: 0.12934105, w: -0.0014470279}
-  m_LocalPosition: {x: -3.6441755, y: 6.256022, z: 2.4821484}
+  m_LocalPosition: {x: -6.864707, y: 9.191166, z: 9.207551}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1334,4 +1351,4 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 4, y: 2.5, z: -10}
+  FollowOffset: {x: 3, y: 2.5, z: -10}
