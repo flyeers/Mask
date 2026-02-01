@@ -501,6 +501,11 @@ MonoBehaviour:
   tolerancia: 0.05
   velocidadArrastre: 1.5
   aceleracionArrastre: 10
+  maxStack: 8
+  rayUpMaxDist: 0.8
+  rayUpStartOffset: 0.02
+  dragSoltado: 8
+  angularDragSoltado: 8
 --- !u!114 &8397988874177324419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -855,7 +860,7 @@ GameObject:
   - component: {fileID: 1200269386441547781}
   - component: {fileID: 8031017158810390746}
   - component: {fileID: 1637581416077495941}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SpriteDash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1003,7 +1008,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7317357958812967129}
   - component: {fileID: 7771301766716878929}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SpriteDashCopyLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1176,7 +1181,7 @@ Transform:
   m_GameObject: {fileID: 6952212588869024994}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00031211812, y: -0.99159914, z: 0.12934105, w: -0.0014470279}
-  m_LocalPosition: {x: -6.881006, y: 8.667468, z: 3.5818977}
+  m_LocalPosition: {x: -6.864709, y: 9.191165, z: 9.207551}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
