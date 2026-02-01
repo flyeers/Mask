@@ -6,7 +6,7 @@ public class SpawnPointInitializer : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private List<Transform> _spawnPoints;
     
-    private void Start()
+    private void Awake()
     {
         var spawnPointIndex = GameSession.Instance.SpawnPointIndex;
 
