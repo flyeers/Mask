@@ -417,10 +417,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\r\nProgramers\r\n\r\nEduardo Rico\r\nAndres Mayo \r\nJulia Fluiters\r\nDiego
-    Lobo\nRodrigo Manzano\r\n\r\n\r\nDesigners\r\n\r\nPatricia Salamanca\r\nDiego
-    C\xF3rdoba\r\n\r\n\r\nArt\r\nRodrigo Manzano\r\nAlberte D\xEDaz\r\nDaniel Pascual\r\nIrene
-    Rodr\xEDguez\r\n\r\n\r\nSound\r\nNerea Herrero\r\n\r\nTechnical Artist\r\nEric
-    Bataller\n\nQA Tester\nRodrigo Manzano\n\nPlayers\nYou :)"
+    Lobo\r\n\r\n\r\nDesigners\r\n\r\nPatricia Salamanca\r\nDiego C\xF3rdoba\r\n\r\n\r\nArt\n\r\nRodrigo
+    Manzano\r\nAlberte D\xEDaz\r\nDaniel Pascual\r\nIrene Rodr\xEDguez\r\n\r\n\r\nSound\n\r\nNerea
+    Herrero\nAlberte D\xEDaz\r\n\r\nTechnical Artist\r\nEric Bataller\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3a619ce160d22924f89a0e8685f5982b, type: 2}
   m_sharedMaterial: {fileID: 4924326690801380685, guid: 3a619ce160d22924f89a0e8685f5982b, type: 2}
