@@ -34,7 +34,7 @@ public class SpookyVision : MonoBehaviour
         
         foreach (var obj in spookyObjects) 
         {
-            if(obj.TryGetComponent<Renderer>(out Renderer rend)) 
+            if(obj != null && obj.TryGetComponent<Renderer>(out Renderer rend)) 
             { 
                 rend.enabled = render;
             }

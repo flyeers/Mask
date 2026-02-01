@@ -93,6 +93,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Managers.GameManager
   playerDamageable: {fileID: 0}
+  deathCountdownText: {fileID: 0}
+  countdownPrefix: 'Time to exit: '
 --- !u!1 &1496692232891382106
 GameObject:
   m_ObjectHideFlags: 0
