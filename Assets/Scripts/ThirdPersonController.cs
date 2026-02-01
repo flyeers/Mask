@@ -281,4 +281,9 @@ public class ThirdPersonController : MonoBehaviour
         }
     }
     public bool IsGrounded => firstGrounded && characterController.isGrounded;
+
+    public void Caught()
+    {
+        _animator.SetTrigger("Caught");
+    }
 }

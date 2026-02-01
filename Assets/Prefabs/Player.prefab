@@ -478,7 +478,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpookyVision
   tagName: spooky
-  spookyVolume: {fileID: 0}
+  normalVolume: {fileID: 4297123237003100696, guid: dcf6f760099574821b72082136ea3dcd, type: 3}
+  spookyVolume: {fileID: 3640515022237421423, guid: c59a4a580871d4048bd8a000d3513565, type: 3}
   _spookyVisionSfx: {fileID: 2807250446851653279}
 --- !u!114 &3463150131703762602
 MonoBehaviour:
@@ -1188,7 +1189,7 @@ Transform:
   m_GameObject: {fileID: 6952212588869024994}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00031211812, y: -0.99159914, z: 0.12934105, w: -0.0014470279}
-  m_LocalPosition: {x: -6.864709, y: 9.191165, z: 9.207551}
+  m_LocalPosition: {x: -2.3329551, y: 6.265236, z: 6.353384}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
