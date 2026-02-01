@@ -11,9 +11,6 @@
         },
         {
             "m_Id": "09e9adb1ee6f402f8ea78fc34116cd19"
-        },
-        {
-            "m_Id": "62670295096d45adb13aa4e7a034bafc"
         }
     ],
     "m_Keywords": [],
@@ -876,39 +873,8 @@
         },
         {
             "m_Id": "09e9adb1ee6f402f8ea78fc34116cd19"
-        },
-        {
-            "m_Id": "62670295096d45adb13aa4e7a034bafc"
         }
     ]
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.BooleanShaderProperty",
-    "m_ObjectId": "62670295096d45adb13aa4e7a034bafc",
-    "m_Guid": {
-        "m_GuidSerialized": "a6deef32-127e-4f08-b193-d25c083e935d"
-    },
-    "promotedFromAssetID": "",
-    "promotedFromCategoryName": "",
-    "promotedOrdering": -1,
-    "m_Name": "UseRadialWipe",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "UseRadialWipe",
-    "m_DefaultReferenceName": "_UseRadialWipe",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_DismissedVersion": 0,
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_PerRendererData": false,
-    "m_customAttributes": [],
-    "m_Value": false
 }
 
 {

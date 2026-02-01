@@ -6,7 +6,7 @@ public class MenuUI : MonoBehaviour
 {
     public void OpenScene(int sceneIndex)
     {
-        SceneManager.LoadScene(sceneIndex);
+        GeneralManager.Instance.SceneController.LoadLevel(sceneIndex);
     }
 
     public void Exit()

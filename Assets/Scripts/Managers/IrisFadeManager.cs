@@ -25,7 +25,6 @@ namespace Managers
         
         private static readonly int FadeAmountID = Shader.PropertyToID("_FadeAmount");
         private static readonly int CenterID = Shader.PropertyToID("_Center");
-        private static readonly int UseRadialWipeID = Shader.PropertyToID("_UseRadialWipe");
 
         public event Action FadeOutCompleted;
         public event Action FadeInCompleted;
@@ -43,7 +42,6 @@ namespace Managers
                 // Crear instancia del material
                 materialInstance = new Material(fadeMaterial);
                 fadeImage.material = materialInstance;
-                materialInstance.SetFloat(UseRadialWipeID, 1f);
                 
                 // Suscribirse al evento de carga de escena
                 SceneManager.sceneLoaded += OnSceneLoaded;
@@ -88,7 +86,7 @@ namespace Managers
         private IEnumerator FadeOut()
         {
             UpdatePlayerPosition();
-            materialInstance.SetFloat(FadeAmountID, 1f);
+            materialInstance.SetFloat(FadeAmountID, maxRadius);
             
             float elapsedTime = 0f;
             while (elapsedTime < fadeDuration)

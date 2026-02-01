@@ -416,7 +416,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Cumeador 1 : Rodrigo Manzano\nCuameadora 2: Patricia Salamanca\n\t\t\t\tProgramadores\nEduardo\nAndres\nJulia\nDiego\n\n\n\t\t\t\tDise\xF1adores\n\nPatri\nDiego\n\n\n\t\t\t\tLo
+  m_text: "\n\t\t\t\tProgramadores\nEduardo Rico Manzanera\nAndres Mayo \nJulia\nDiego\n\n\n\t\t\t\tDise\xF1adores\n\nPatri\nDiego\n\n\n\t\t\t\tLo
     que seais el resto\nDani\nCrema Catalana\nPokemon Morado\ny de los que mo olvido\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3a619ce160d22924f89a0e8685f5982b, type: 2}
@@ -661,7 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00496e04d96fde46b6675a574296d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoCreditsScroll
-  scrollSpeed: 120
+  scrollSpeed: 12080
 --- !u!1 &1212757102
 GameObject:
   m_ObjectHideFlags: 0
