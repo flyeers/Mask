@@ -21,21 +21,26 @@ public class RotateToAgentDirection : MonoBehaviour
     {
         var isMoving = navMeshAgent.velocity.sqrMagnitude > 0f;
         
-        if (isMoving && navMeshAgent.velocity != Vector3.zero) {
-            Vector3 direction = navMeshAgent.velocity.normalized;
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 
-                rotationSpeed * Time.deltaTime);
-        }
+        // if (isMoving && navMeshAgent.velocity != Vector3.zero) {
+        //     Vector3 direction = navMeshAgent.velocity.normalized;
+        //     Quaternion targetRotation = Quaternion.LookRotation(direction);
+        //     transform.rotation = targetRotation;
+        //     // transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 
+        //     //     rotationSpeed * Time.deltaTime);
+        // }
         
         _animator.SetBool("Move", isMoving);
 
-        if (navMeshAgent.velocity.x > 0f)
+        if (navMeshAgent.velocity.x >= 0f)
         {
+            Quaternion targetRotation = Quaternion.LookRotation(_spriteRenderer.transform.right);
+            transform.rotation = targetRotation;
             _spriteRenderer.transform.localScale = new Vector3(1f, 1f, 1f);
         }
         else if (navMeshAgent.velocity.x < 0f)
         {
+            Quaternion targetRotation = Quaternion.LookRotation(-_spriteRenderer.transform.right);
+            transform.rotation = targetRotation;
             _spriteRenderer.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
     }

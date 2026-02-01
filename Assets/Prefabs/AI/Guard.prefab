@@ -376,7 +376,7 @@ MonoBehaviour:
   priority: 999
   minYOffset: -0.5
   maxYOffset: 1.5
-  fovAngle: 30
+  fovAngle: 100
 --- !u!1 &4452389485211093780
 GameObject:
   m_ObjectHideFlags: 0
