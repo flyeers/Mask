@@ -15,6 +15,7 @@ public class CollectMask : MonoBehaviour
 
     [SerializeField] private bool timerToDie = true;
 
+    public static event Action<string> OnMaskCollected;
     private void Start()
     {
         gameManager = GeneralManager.Instance.GameManager;
@@ -33,15 +34,8 @@ public class CollectMask : MonoBehaviour
                     if (maskItem.maskSo != null) 
                     { 
                         maskInventory.AddItem(maskItem.maskSo);
-                        if (messageUIPrefab) //show popUp
-                        {
-                            GameObject currentMessageUI = Instantiate(messageUIPrefab);
-
-                            TextMeshProUGUI tmpText = currentMessageUI.GetComponentInChildren<TextMeshProUGUI>();
-                            if (tmpText != null)
-                                tmpText.text = messageText;
-
-                        } 
+                        
+                        OnMaskCollected?.Invoke(messageText);
 
                         if (gameManager != null && timerToDie)
                             gameManager.StartKillCountdown(secondsToDie);
