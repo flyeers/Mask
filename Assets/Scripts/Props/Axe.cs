@@ -54,9 +54,9 @@ public class Axe : MonoBehaviour
     {
         if (other.CompareTag("Player")) 
         { 
-            if (other.GetComponentInParent<Damageable>())
+            if (other.TryGetComponent<Damageable>(out Damageable damage))
             {
-                other.GetComponentInParent<Damageable>().Die();
+                damage.Die();
                 Debug.Log("die");
             } 
         }      

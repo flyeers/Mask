@@ -6,12 +6,11 @@ public class CollectMask : MonoBehaviour
 {
 
     [SerializeField] private float secondsToDie = 5f;
-
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameObject messageUIPrefab;
 
     private void Awake()
     {
-        
         gameManager = FindFirstObjectByType<GameManager>();
         if (gameManager == null)
             Debug.LogError("No hay GameManager en la escena.");
@@ -27,6 +26,7 @@ public class CollectMask : MonoBehaviour
                     if (maskItem.maskSo != null) 
                     { 
                         maskInventory.AddItem(maskItem.maskSo);
+                        if(messageUIPrefab) Instantiate(messageUIPrefab); //show popUp
 
                         if (gameManager != null)
                             gameManager.StartKillCountdown(secondsToDie);
