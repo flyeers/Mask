@@ -2811,7 +2811,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.9, y: 33.99, z: 16.26}
+  m_Size: {x: 10.75, y: 33.99, z: 16.31}
   m_Center: {x: 0, y: 16.08, z: 0}
 --- !u!1 &196661132 stripped
 GameObject:
@@ -2941,7 +2941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1d2c4fc7588fdd74ba25d0e88dd56b29, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.88
+      value: 10.12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1d2c4fc7588fdd74ba25d0e88dd56b29, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20585,10 +20585,6 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 550035350}
-    - target: {fileID: 5060506555965260465, guid: 5a5902e8e0b50a54aad625d69adc0676, type: 3}
-      propertyPath: messageText
-      value: 'Hook '
-      objectReference: {fileID: 0}
     - target: {fileID: 8494125789978609663, guid: 5a5902e8e0b50a54aad625d69adc0676, type: 3}
       propertyPath: m_Name
       value: Mask_burglar
@@ -23308,6 +23304,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1537703452704808445, guid: 2fc37eff843ebdd209ad9283a0599a04, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477042167316550017, guid: 2fc37eff843ebdd209ad9283a0599a04, type: 3}
+      propertyPath: CollectedMasks.Array.size
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
