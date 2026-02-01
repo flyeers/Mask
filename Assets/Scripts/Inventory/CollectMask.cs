@@ -1,4 +1,5 @@
 ﻿using Managers;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ public class CollectMask : MonoBehaviour
     [SerializeField] private float secondsToDie = 5f;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject messageUIPrefab;
+    [TextArea(3, 10)]
+    [SerializeField] private string messageText;
 
     private void Awake()
     {
@@ -26,7 +29,15 @@ public class CollectMask : MonoBehaviour
                     if (maskItem.maskSo != null) 
                     { 
                         maskInventory.AddItem(maskItem.maskSo);
-                        if(messageUIPrefab) Instantiate(messageUIPrefab); //show popUp
+                        if (messageUIPrefab) //show popUp
+                        {
+                            GameObject currentMessageUI = Instantiate(messageUIPrefab);
+
+                            TextMeshProUGUI tmpText = currentMessageUI.GetComponentInChildren<TextMeshProUGUI>();
+                            if (tmpText != null)
+                                tmpText.text = messageText;
+
+                        } 
 
                         if (gameManager != null)
                             gameManager.StartKillCountdown(secondsToDie);

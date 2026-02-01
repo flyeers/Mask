@@ -82,6 +82,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e06febd760c27194d94f8994e05e2837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectMask
+  secondsToDie: 4
+  gameManager: {fileID: 0}
+  messageUIPrefab: {fileID: 6303870084342460274, guid: 319f5125683576d4387cd8a86f6d3da2, type: 3}
+  messageText: 'Now you''re a real thief. Use the hook to hide from the guards. '
 --- !u!212 &953735835086906135
 SpriteRenderer:
   serializedVersion: 2
