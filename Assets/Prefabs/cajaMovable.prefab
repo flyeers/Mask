@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7327459366562096239}
   - component: {fileID: 4430838222860128792}
   - component: {fileID: 3610677960838215182}
+  - component: {fileID: 8974615460961536607}
   m_Layer: 0
   m_Name: cajaMovable
   m_TagString: movable
@@ -190,3 +191,19 @@ MonoBehaviour:
   snapCooldown: 0.15
   snapToGrid: 0
   gridSize: 1
+--- !u!208 &8974615460961536607
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7610637929521977820}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.43300003, y: 0.43300003, z: 0.43300003}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.5}
+  m_TimeToStationary: 0.5
