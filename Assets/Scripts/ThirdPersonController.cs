@@ -15,6 +15,7 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField] private SpriteRenderer _oldMaskSpriteRenderer;
 
     [SerializeField] private FMODUnity.StudioEventEmitter _footstepSfx;
+    [SerializeField] private FMODUnity.StudioEventEmitter _jumpSfx;
 
 
     [SerializeField] private float speed = 3.0f;
@@ -156,6 +157,8 @@ public class ThirdPersonController : MonoBehaviour
         // 3) ✅ Un solo Move por frame
         CollisionFlags flags = characterController.Move(currentMovement * Time.deltaTime);
 
+        var wasGrounded = characterController.isGrounded;
+
         // 4) Grounded fiable
         bool groundedNow = (flags & CollisionFlags.Below) != 0;
 
@@ -190,6 +193,14 @@ public class ThirdPersonController : MonoBehaviour
                 }
             }
         }
+
+        if (!wasGrounded && groundedNow)
+        {
+            if (_footstepSfx != null && !_footstepSfx.IsPlaying())
+            {
+                _footstepSfx.Play();
+            }
+        }
     }
 
     public bool GetLoockDirection() 
@@ -218,6 +229,7 @@ public class ThirdPersonController : MonoBehaviour
         if (!CanMove) return; // no salto mientras arrastro
         jumpRequested = true;
         _animator.SetTrigger("Jump");
+        _jumpSfx.Play();
     }
 
     private void Previous()

@@ -185,6 +185,69 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &535340393053037212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1567894489513704073}
+  - component: {fileID: 4903982080620914535}
+  m_Layer: 9
+  m_Name: JumpSfx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1567894489513704073
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535340393053037212}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1764310908000392294}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4903982080620914535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535340393053037212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2017476220
+      Data2: 1211434068
+      Data3: -936293759
+      Data4: -164157012
+    Path: event:/Sfx/Footstep
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1515930065687466213
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +325,7 @@ Transform:
   - {fileID: 1200269386441547781}
   - {fileID: 7317357958812967129}
   - {fileID: 1890751798518105206}
+  - {fileID: 1567894489513704073}
   m_Father: {fileID: 6405725838620975428}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7481958416920402024
@@ -357,6 +421,7 @@ MonoBehaviour:
   _currentMaskSpriteRenderer: {fileID: 2575522112438149472}
   _oldMaskSpriteRenderer: {fileID: 8719391629145581294}
   _footstepSfx: {fileID: 1461005172304292555}
+  _jumpSfx: {fileID: 4903982080620914535}
   speed: 7
   gravity: -20
   jumpHeight: 1.2
@@ -976,7 +1041,7 @@ Transform:
   m_GameObject: {fileID: 6952212588869024994}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00031211812, y: -0.99159914, z: 0.12934105, w: -0.0014470279}
-  m_LocalPosition: {x: -6.864707, y: 9.191166, z: 9.207551}
+  m_LocalPosition: {x: 11.222976, y: 10.898435, z: 9.26217}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1152,7 +1217,7 @@ GameObject:
   - component: {fileID: 1890751798518105206}
   - component: {fileID: 1461005172304292555}
   m_Layer: 9
-  m_Name: Footsteps
+  m_Name: FootstepsSfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1188,11 +1253,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 2017476220
-      Data2: 1211434068
-      Data3: -936293759
-      Data4: -164157012
-    Path: event:/Sfx/Footstep
+      Data1: 1879424551
+      Data2: 1255500586
+      Data3: 41596089
+      Data4: -2083325470
+    Path: event:/Sfx/Jump
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
