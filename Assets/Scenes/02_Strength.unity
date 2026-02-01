@@ -814,6 +814,26 @@ MonoBehaviour:
   snapCooldown: 0.15
   snapToGrid: 0
   gridSize: 1
+--- !u!1 &256304722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7610637929521977820, guid: 2f873205af41e974abfc67d7febc57e4, type: 3}
+  m_PrefabInstance: {fileID: 1478410688}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &256304723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256304722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f508b37667d64d499fd7f0f0472a03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovableHighlight
+  renderers: []
+  highlightMaterial: {fileID: 2100000, guid: 6fbad120df26dda489c2d46f0b14158a, type: 2}
+  useMaterialSwap: 1
 --- !u!1001 &262490981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8340,7 +8360,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7610637929521977820, guid: 2f873205af41e974abfc67d7febc57e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 256304723}
   m_SourcePrefab: {fileID: 100100000, guid: 2f873205af41e974abfc67d7febc57e4, type: 3}
 --- !u!43 &1499455470
 Mesh:
