@@ -3456,6 +3456,10 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 2511037923856914855, guid: 8788180e7895b574480a1cbcf07f1498, type: 3}
+      propertyPath: alphaUnselected
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6926639803221868625, guid: 8788180e7895b574480a1cbcf07f1498, type: 3}
       propertyPath: m_Name
       value: MainCanvas
@@ -3671,7 +3675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2445253100351508599, guid: 8ac62536d79b61f4f823ab0456cf50ed, type: 3}
       propertyPath: countdownPrefix
-      value: "\xA1Vienen los guardias, escapa! "
+      value: 'Time to exit: '
       objectReference: {fileID: 0}
     - target: {fileID: 2445253100351508599, guid: 8ac62536d79b61f4f823ab0456cf50ed, type: 3}
       propertyPath: playerDamageable
