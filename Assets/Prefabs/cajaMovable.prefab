@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7484621059340655602}
   - component: {fileID: 442618468937831386}
   - component: {fileID: 600909643542629500}
+  - component: {fileID: 7327459366562096239}
   m_Layer: 0
   m_Name: cajaMovable
   m_TagString: movable
@@ -140,3 +141,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7327459366562096239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7610637929521977820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f508b37667d64d499fd7f0f0472a03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovableHighlight
+  renderers: []
+  highlightMaterial: {fileID: 2100000, guid: 6fbad120df26dda489c2d46f0b14158a, type: 2}
+  useMaterialSwap: 1
