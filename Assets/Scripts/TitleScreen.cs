@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Managers;
 
 public class TitleScreen : MonoBehaviour
 {
@@ -23,22 +24,23 @@ public class TitleScreen : MonoBehaviour
         // Espera inicial
         yield return new WaitForSeconds(delayBeforeFade);
 
-        float t = 0f;
-        Color color = fadeImage.color;
-
-        // Fade out (alpha 1 → 0)
-        while (t < fadeDuration)
-        {
-            t += Time.deltaTime;
-            color.a = Mathf.Lerp(1f, 0f, t / fadeDuration);
-            fadeImage.color = color;
-            yield return null;
-        }
-
-        color.a = 0f;
-        fadeImage.color = color;
+        // float t = 0f;
+        // Color color = fadeImage.color;
+        //
+        // // Fade out (alpha 1 → 0)
+        // while (t < fadeDuration)
+        // {
+        //     t += Time.deltaTime;
+        //     color.a = Mathf.Lerp(1f, 0f, t / fadeDuration);
+        //     fadeImage.color = color;
+        //     yield return null;
+        // }
+        //
+        // color.a = 0f;
+        // fadeImage.color = color;
 
         // Cambia de escena
-        SceneManager.LoadScene(sceneToLoad);
+        GeneralManager.Instance.SceneController.LoadLevel(0);
+        //SceneManager.LoadScene(sceneToLoad);
     }
 }
