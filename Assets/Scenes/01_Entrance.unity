@@ -10824,7 +10824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6897155610403805515, guid: d2484a44fd9789d4cbd24526be8fcb59, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.8399999
+      value: -1.88
       objectReference: {fileID: 0}
     - target: {fileID: 6897155610403805515, guid: d2484a44fd9789d4cbd24526be8fcb59, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11145,7 +11145,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 3829
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -16775,7 +16775,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 3829
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -26386,7 +26386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f696ee48f41f74e478777ea00d333acc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.62
+      value: 31.14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f696ee48f41f74e478777ea00d333acc, type: 3}
       propertyPath: m_LocalPosition.y
