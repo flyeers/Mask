@@ -14,6 +14,8 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField] private SpriteRenderer _currentMaskSpriteRenderer;
     [SerializeField] private SpriteRenderer _oldMaskSpriteRenderer;
 
+    [SerializeField] private FMODUnity.StudioEventEmitter _footstepSfx;
+
 
     [SerializeField] private float speed = 3.0f;
     [SerializeField] private float gravity = -9.81f; // Added gravity constant
@@ -170,6 +172,24 @@ public class ThirdPersonController : MonoBehaviour
         _animator.SetBool("Move", horizontalSpeed > 0.01f);
         
         _animator.SetBool("Grounded", groundedNow);
+
+        if (groundedNow)
+        {
+            if (horizontalSpeed > 0.1f)
+            {
+                if (_footstepSfx != null && !_footstepSfx.IsPlaying())
+                {
+                    _footstepSfx.Play();
+                }
+            }
+            else
+            {
+                if (_footstepSfx != null)
+                {
+                    _footstepSfx.Stop();
+                }
+            }
+        }
     }
 
     public bool GetLoockDirection() 
