@@ -19,7 +19,7 @@ namespace Managers
 
         [Header("UI")]
         [SerializeField] private TMP_Text deathCountdownText;
-        [SerializeField] private string countdownPrefix = "Cumeas en: ";
+        [SerializeField] private string countdownPrefix = "Time to exit: ";
 
         private void Awake()
         {
