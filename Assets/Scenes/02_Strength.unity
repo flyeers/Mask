@@ -793,6 +793,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &215769061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7610637929521977820, guid: 2f873205af41e974abfc67d7febc57e4, type: 3}
+  m_PrefabInstance: {fileID: 2120149162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &215769067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215769061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a72a9e5f524fc845bcdbe987bcf1ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovableSnap
+  snapMaxOffset: 0.25
+  snapCooldown: 0.15
+  snapToGrid: 0
+  gridSize: 1
 --- !u!1001 &262490981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11301,6 +11322,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859942649}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1882123846 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7610637929521977820, guid: 2f873205af41e974abfc67d7febc57e4, type: 3}
+  m_PrefabInstance: {fileID: 548514762472662736}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1882123852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882123846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a72a9e5f524fc845bcdbe987bcf1ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovableSnap
+  snapMaxOffset: 0.25
+  snapCooldown: 0.15
+  snapToGrid: 0
+  gridSize: 1
 --- !u!1001 &1885322760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16398,7 +16440,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7610637929521977820, guid: 2f873205af41e974abfc67d7febc57e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 215769067}
   m_SourcePrefab: {fileID: 100100000, guid: 2f873205af41e974abfc67d7febc57e4, type: 3}
 --- !u!1001 &2120810818
 PrefabInstance:
@@ -16845,6 +16890,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 600909643542629500, guid: 2f873205af41e974abfc67d7febc57e4, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 7610637929521977820, guid: 2f873205af41e974abfc67d7febc57e4, type: 3}
       propertyPath: m_Name
       value: cajaMovable (1)
@@ -16904,7 +16953,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7610637929521977820, guid: 2f873205af41e974abfc67d7febc57e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1882123852}
   m_SourcePrefab: {fileID: 100100000, guid: 2f873205af41e974abfc67d7febc57e4, type: 3}
 --- !u!1001 &1617308800655066355
 PrefabInstance:
