@@ -2227,6 +2227,74 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 100, z: 18}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &881574198
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4421375596592360621, guid: c59a4a580871d4048bd8a000d3513565, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 35.75243
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421375596592360621, guid: c59a4a580871d4048bd8a000d3513565, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.67388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421375596592360621, guid: c59a4a580871d4048bd8a000d3513565, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.66108
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421375596592360621, guid: c59a4a580871d4048bd8a000d3513565, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421375596592360621, guid: c59a4a580871d4048bd8a000d3513565, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421375596592360621, guid: c59a4a580871d4048bd8a000d3513565, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421375596592360621, guid: c59a4a580871d4048bd8a000d3513565, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421375596592360621, guid: c59a4a580871d4048bd8a000d3513565, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421375596592360621, guid: c59a4a580871d4048bd8a000d3513565, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421375596592360621, guid: c59a4a580871d4048bd8a000d3513565, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458940214751369167, guid: c59a4a580871d4048bd8a000d3513565, type: 3}
+      propertyPath: m_Name
+      value: VisionSpookyVolume
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c59a4a580871d4048bd8a000d3513565, type: 3}
+--- !u!114 &881574199 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3640515022237421423, guid: c59a4a580871d4048bd8a000d3513565, type: 3}
+  m_PrefabInstance: {fileID: 881574198}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
 --- !u!1001 &882278222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3955,6 +4023,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 9.207551
       objectReference: {fileID: 0}
+    - target: {fileID: 2930271442840328297, guid: 27fa54c0d62aa2343a7ca0145ae0b6d2, type: 3}
+      propertyPath: spookyVolume
+      value: 
+      objectReference: {fileID: 881574199}
     - target: {fileID: 5760007815678401651, guid: 27fa54c0d62aa2343a7ca0145ae0b6d2, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4842,6 +4914,7 @@ SceneRoots:
   - {fileID: 334406820}
   - {fileID: 1489410148}
   - {fileID: 1490992682}
+  - {fileID: 881574198}
   - {fileID: 724113619}
   - {fileID: 82546646}
   - {fileID: 1285941734}
