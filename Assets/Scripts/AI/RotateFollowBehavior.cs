@@ -62,13 +62,13 @@ namespace AI
         
         public override bool Completed()
         {
-            float angle = AngleToTarget();
-            if (angle < angleReachThreshold || angle - previousAngle < 0.1f)
-            {
-                return true;
-            }
-            previousAngle = angle;
-            return false;
+            // float angle = AngleToTarget();
+            // if (angle < angleReachThreshold || angle - previousAngle < 0.1f)
+            // {
+            //     return true;
+            // }
+            // previousAngle = angle;
+            return true;
         }
 
         private float AngleToTarget()
