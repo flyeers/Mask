@@ -119,6 +119,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &503473031
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4850617607114112377, guid: 5a5902e8e0b50a54aad625d69adc0676, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.0657692
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850617607114112377, guid: 5a5902e8e0b50a54aad625d69adc0676, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850617607114112377, guid: 5a5902e8e0b50a54aad625d69adc0676, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.100874
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850617607114112377, guid: 5a5902e8e0b50a54aad625d69adc0676, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850617607114112377, guid: 5a5902e8e0b50a54aad625d69adc0676, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850617607114112377, guid: 5a5902e8e0b50a54aad625d69adc0676, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850617607114112377, guid: 5a5902e8e0b50a54aad625d69adc0676, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850617607114112377, guid: 5a5902e8e0b50a54aad625d69adc0676, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850617607114112377, guid: 5a5902e8e0b50a54aad625d69adc0676, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850617607114112377, guid: 5a5902e8e0b50a54aad625d69adc0676, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494125789978609663, guid: 5a5902e8e0b50a54aad625d69adc0676, type: 3}
+      propertyPath: m_Name
+      value: Mask_burglar
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a5902e8e0b50a54aad625d69adc0676, type: 3}
 --- !u!1 &522363532
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,11 +1011,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 269919557519466380, guid: 27fa54c0d62aa2343a7ca0145ae0b6d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.35580832
+      value: -3.864719
+      objectReference: {fileID: 0}
+    - target: {fileID: 269919557519466380, guid: 27fa54c0d62aa2343a7ca0145ae0b6d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.191166
       objectReference: {fileID: 0}
     - target: {fileID: 269919557519466380, guid: 27fa54c0d62aa2343a7ca0145ae0b6d2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.470561
+      value: 9.19886
       objectReference: {fileID: 0}
     - target: {fileID: 3333212520090193591, guid: 27fa54c0d62aa2343a7ca0145ae0b6d2, type: 3}
       propertyPath: FollowOffset.x
@@ -966,11 +1027,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4616700394106464833, guid: 27fa54c0d62aa2343a7ca0145ae0b6d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.35580832
+      value: -3.864719
       objectReference: {fileID: 0}
     - target: {fileID: 4616700394106464833, guid: 27fa54c0d62aa2343a7ca0145ae0b6d2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.470561
+      value: 9.19886
       objectReference: {fileID: 0}
     - target: {fileID: 5760007815678401651, guid: 27fa54c0d62aa2343a7ca0145ae0b6d2, type: 3}
       propertyPath: m_Name
@@ -1024,6 +1085,10 @@ PrefabInstance:
       propertyPath: maskInventoryUI
       value: 
       objectReference: {fileID: 1995463484}
+    - target: {fileID: 8397988874177324419, guid: 27fa54c0d62aa2343a7ca0145ae0b6d2, type: 3}
+      propertyPath: inventory.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8531587718438798737, guid: 27fa54c0d62aa2343a7ca0145ae0b6d2, type: 3}
       propertyPath: m_TargetTexture
       value: 
@@ -1043,7 +1108,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 778852548490030449, guid: c217b2bbba04c1c4ca73828f636b800e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.01
+      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 778852548490030449, guid: c217b2bbba04c1c4ca73828f636b800e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1309,3 +1374,4 @@ SceneRoots:
   - {fileID: 826699523}
   - {fileID: 900726546}
   - {fileID: 1863630372}
+  - {fileID: 503473031}

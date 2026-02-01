@@ -36,8 +36,8 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1000, y: 300}
-  m_Pivot: {x: 0.5, y: -0.5}
+  m_SizeDelta: {x: 900, y: 200}
+  m_Pivot: {x: 0.5, y: -0.6}
 --- !u!222 &662499124896873683
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 5269077096045731869}
   - component: {fileID: 6947397257580028373}
   m_Layer: 5
-  m_Name: Message_burglar
+  m_Name: MessageUI
   m_TagString: MessageUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -328,4 +328,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e17eaeca109c74e8787ffad85a3219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyPopUp
-  timeToDestro: 5
+  timeToDestro: 3
