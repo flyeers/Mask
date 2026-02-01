@@ -85,7 +85,8 @@ MonoBehaviour:
   secondsToDie: 4
   gameManager: {fileID: 0}
   messageUIPrefab: {fileID: 6303870084342460274, guid: 319f5125683576d4387cd8a86f6d3da2, type: 3}
-  messageText: You have incredible agility, dash and avoid danger.
+  messageText: DASH
+  timerToDie: 1
 --- !u!212 &5523245459428089235
 SpriteRenderer:
   serializedVersion: 2
