@@ -34,6 +34,10 @@ namespace AI
         {
             while (isPatrolling)
             {
+                if (waypoints.Length == 0)
+                {
+                    yield break;
+                }
                 NavMeshHit hit;
                 if (NavMesh.SamplePosition(waypoints[currentWaypointIndex].position, out hit, 500f, NavMesh.AllAreas))
                 {
