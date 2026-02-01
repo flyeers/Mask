@@ -9,6 +9,7 @@ namespace Damage
         public void Die()
         {
             OnDeath?.Invoke();
+            OnDeath = null;
         }
 
         public event Action OnDeath;

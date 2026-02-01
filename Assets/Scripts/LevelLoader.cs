@@ -14,8 +14,8 @@ public class LevelLoader : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         if (levelBuildIndex > 0)
         {
-            GeneralManager.Instance.SceneController.LoadLevel(levelBuildIndex);
             GameSession.Instance.SpawnPointIndex = spawnPointIndex;
+            GeneralManager.Instance.SceneController.LoadLevel(levelBuildIndex);
             _loaded = true;
         }
     }
