@@ -85,8 +85,8 @@ MonoBehaviour:
   secondsToDie: 4
   gameManager: {fileID: 0}
   messageUIPrefab: {fileID: 6303870084342460274, guid: 319f5125683576d4387cd8a86f6d3da2, type: 3}
-  messageText: 'With masive strenght don''t let anything get in your way, move the
-    obstacles, find the way forward '
+  messageText: PUSH BOXES
+  timerToDie: 1
 --- !u!212 &3712256342614155548
 SpriteRenderer:
   serializedVersion: 2
