@@ -693,6 +693,10 @@ PrefabInstance:
       value: GeneralManager
       objectReference: {fileID: 0}
     - target: {fileID: 2445253100351508599, guid: 8ac62536d79b61f4f823ab0456cf50ed, type: 3}
+      propertyPath: countdownPrefix
+      value: 'Time to exit:  '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2445253100351508599, guid: 8ac62536d79b61f4f823ab0456cf50ed, type: 3}
       propertyPath: playerDamageable
       value: 
       objectReference: {fileID: 1659660823}
@@ -5019,6 +5023,10 @@ PrefabInstance:
     - target: {fileID: 6458940214751369167, guid: c59a4a580871d4048bd8a000d3513565, type: 3}
       propertyPath: m_Name
       value: VisionSpookyVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458940214751369167, guid: c59a4a580871d4048bd8a000d3513565, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

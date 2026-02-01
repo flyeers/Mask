@@ -82,6 +82,8 @@ namespace Managers
             // Mostrar en segundos enteros (3,2,1...)
             int secondsInt = Mathf.CeilToInt(Mathf.Max(t, 0f));
             deathCountdownText.text = countdownPrefix + secondsInt + "s";
+
+            if(secondsInt < 20) deathCountdownText.color = Color.red;
         }
 
         private void SetCountdownUIVisible(bool visible)

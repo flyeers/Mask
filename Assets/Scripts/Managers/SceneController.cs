@@ -11,7 +11,7 @@ namespace Managers
         
         public void ReloadCurrentScene()
         {
-            LoadLevel(SceneManager.GetActiveScene().buildIndex);
+            LoadLevel(SceneManager.GetActiveScene().buildIndex-1);
         }
 
         public void LoadLevel(int sceneIndex)
@@ -24,7 +24,7 @@ namespace Managers
             loading = true;
             IrisFadeManager.Instance.FadeOutCompleted += InstanceOnFadeOutCompleted;
             IrisFadeManager.Instance.StartFadeOut();
-            StartCoroutine(LoadLevel_CO(sceneIndex));
+            StartCoroutine(LoadLevel_CO(sceneIndex+1));
         }
 
         private IEnumerator LoadLevel_CO(int sceneIndex)

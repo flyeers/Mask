@@ -300,6 +300,17 @@
                 },
                 {
                     "name": "",
+                    "id": "dda8e914-b0b7-48ab-b718-3d2c3dd91804",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "cbac6039-9c09-46a1-b5f2-4e5124ccb5ed",
                     "path": "<Keyboard>/e",
                     "interactions": "",

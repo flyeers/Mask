@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuUI : MonoBehaviour
 {
+    public GameObject auxPanel;
     public void OpenScene(int sceneIndex)
     {
         GeneralManager.Instance.SceneController.LoadLevel(sceneIndex);
@@ -12,5 +13,10 @@ public class MenuUI : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
+    }
+
+    public void SetAuxPanelEnable( bool active)
+    {
+        auxPanel.SetActive(active);
     }
 }

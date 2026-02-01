@@ -5350,7 +5350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2445253100351508599, guid: 8ac62536d79b61f4f823ab0456cf50ed, type: 3}
       propertyPath: countdownPrefix
-      value: "\xA1Vienen los guardias, escapa! "
+      value: 'Time to exit: '
       objectReference: {fileID: 0}
     - target: {fileID: 2445253100351508599, guid: 8ac62536d79b61f4f823ab0456cf50ed, type: 3}
       propertyPath: playerDamageable
