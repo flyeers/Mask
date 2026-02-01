@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Input;
 
@@ -15,48 +16,57 @@ public class Empuje : MonoBehaviour
     [SerializeField] private float tolerancia = 0.05f;
 
     [Header("Movimiento (cinemático)")]
-    [SerializeField] private float velocidadArrastre = 0.8f;   // “peso” = más lento
-    [SerializeField] private float aceleracionArrastre = 10f;  // suavidad al arrancar/frenar
+    [SerializeField] private float velocidadArrastre = 0.8f;
+    [SerializeField] private float aceleracionArrastre = 10f;
+
+    [Header("Stack (pila)")]
+    [SerializeField] private int maxStack = 8;
+    [SerializeField] private float rayUpMaxDist = 0.8f;     // distancia para detectar la caja encima
+    [SerializeField] private float rayUpStartOffset = 0.02f; // subir un pelín desde la cara superior
+
+    [Header("Fricción al soltar (para que no se deslicen)")]
+    [SerializeField] private float dragSoltado = 8f;
+    [SerializeField] private float angularDragSoltado = 8f;
 
     private bool agarrando;
-    private Rigidbody rb;
-    private Transform tr;
 
-    // lado donde está el player (desde centro de caja hacia el player)
+    private Rigidbody rbBase;
+    private Transform trBase;
+
+    // pila completa que moveremos a la vez
+    private readonly List<Rigidbody> stack = new List<Rigidbody>();
+
     private Vector3 agarreAxisWorld;
-
-    // para suavizar velocidad
     private float velActual;
 
-    // para restaurar estado
-    private bool rbEraKinematic;
-
-    private bool agarreEsLateral;
-
+    // guardamos estados por si quieres restaurar (aquí lo hacemos por pila)
+    private struct RBState
+    {
+        public bool isKinematic;
+        public bool useGravity;
+        public RigidbodyConstraints constraints;
+        public float drag;
+        public float angularDrag;
+    }
+    private readonly Dictionary<Rigidbody, RBState> prev = new Dictionary<Rigidbody, RBState>();
 
     private void Awake()
     {
         if (playerInputController == null) playerInputController = GetComponent<PlayerInputController>();
         if (sensor == null) sensor = GetComponentInChildren<MovableSensor>();
         if (characterController == null) characterController = GetComponent<CharacterController>();
+        if (thirdPersonController == null) thirdPersonController = GetComponent<ThirdPersonController>();
 
-        if (playerInputController == null) Debug.LogError("No hay PlayerInputController");
-        if (sensor == null) Debug.LogError("No hay MovableSensor en hijos");
-        if (characterController == null) Debug.LogError("No hay CharacterController");
-
-        if (thirdPersonController == null)
-            thirdPersonController = GetComponent<ThirdPersonController>();
-
+        if (playerInputController == null) Debug.LogError("Empuje: No hay PlayerInputController");
+        if (sensor == null) Debug.LogError("Empuje: No hay MovableSensor en hijos");
+        if (characterController == null) Debug.LogError("Empuje: No hay CharacterController");
+        if (thirdPersonController == null) Debug.LogError("Empuje: No hay ThirdPersonController");
     }
 
     private void OnEnable()
     {
         if (playerInputController != null)
-        {
-
             playerInputController.UseAbility += ToggleAgarrar;
-        Debug.Log("Empuje suscrito a UseAbility");
-        }
     }
 
     private void OnDisable()
@@ -67,69 +77,128 @@ public class Empuje : MonoBehaviour
 
     private void ToggleAgarrar()
     {
-        Debug.Log("ToggleAgarrar llamado. sensor.Current = " +
-                  (sensor != null ? (sensor.Current != null ? sensor.Current.name : "NULL") : "sensor NULL"));
-
         if (!agarrando)
         {
-            if (sensor.Current == null) return;
+            Rigidbody basePick = (sensor != null) ? sensor.GetLowestByBounds() : null;
 
-            rb = sensor.Current;
-            tr = sensor.CurrentTransform;
-            if (rb == null || tr == null) return;
+            // Debug útil para ver qué tienes dentro del sensor
+            // DebugCandidates();
+
+            Debug.Log("ToggleAgarrar: basePick = " + (basePick != null ? basePick.name : "NULL"));
+            if (basePick == null) return;
+
+            rbBase = basePick;
+            trBase = rbBase.transform;
 
             agarrando = true;
-
             if (thirdPersonController != null) thirdPersonController.SetCanMove(false);
 
-            CalcularLadoMasCercano();
+            CalcularLadoMasCercano(trBase);
 
-            // --- MODO ARRASTRE (controlado por script) ---
-            rbEraKinematic = rb.isKinematic;
+            // Construimos pila hacia arriba (base + superiores)
+            BuildStackFromBase(rbBase);
 
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
+            // Guardar estados y poner toda la pila en modo controlado
+            prev.Clear();
+            for (int i = 0; i < stack.Count; i++)
+            {
+                Rigidbody r = stack[i];
+                if (r == null) continue;
 
-            rb.isKinematic = true;                 // la moveremos con MovePosition
-            rb.useGravity = false;                 // opcional mientras arrastras (evita rarezas)
-            rb.constraints = RigidbodyConstraints.FreezeRotation;
+                prev[r] = new RBState
+                {
+                    isKinematic = r.isKinematic,
+                    useGravity = r.useGravity,
+                    constraints = r.constraints,
+                    drag = r.linearDamping,
+                    angularDrag = r.angularDamping
+                };
+
+                r.linearVelocity = Vector3.zero;
+                r.angularVelocity = Vector3.zero;
+
+                r.isKinematic = true;
+                r.useGravity = false;
+                r.constraints = RigidbodyConstraints.FreezeRotation;
+            }
 
             velActual = 0f;
-
-            Debug.Log("Agarrado: " + rb.name);
+            Debug.Log("Agarrado stack size = " + stack.Count);
         }
         else
         {
-            // --- SOLTAR ---
+            // SOLTAR
             agarrando = false;
 
-            if (rb != null)
+            // Restaurar o dejar “físicas con gravedad”
+            for (int i = 0; i < stack.Count; i++)
             {
-                rb.linearVelocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
+                Rigidbody r = stack[i];
+                if (r == null) continue;
 
-                rb.isKinematic = false;            // vuelve a física normal
-                rb.useGravity = true;
+                r.linearVelocity = Vector3.zero;
+                r.angularVelocity = Vector3.zero;
 
-                // ✅ No se mueve en el suelo por empujones: bloquea X/Z, pero deja Y para gravedad
-                rb.constraints = RigidbodyConstraints.FreezePositionX |
-                                 RigidbodyConstraints.FreezePositionZ |
-                                 RigidbodyConstraints.FreezeRotation;
+                // Queremos que caiga y se apile bien:
+                r.isKinematic = false;
+                r.useGravity = true;
+                r.constraints = RigidbodyConstraints.FreezeRotation;
+
+                // Para que no se deslice demasiado
+                r.linearDamping = dragSoltado;
+                r.angularDamping = angularDragSoltado;
             }
 
-            rb = null;
-            tr = null;
+            stack.Clear();
+            prev.Clear();
+
+            rbBase = null;
+            trBase = null;
 
             if (thirdPersonController != null) thirdPersonController.SetCanMove(true);
 
             velActual = 0f;
-
             Debug.Log("Soltado");
         }
     }
 
+    // ✅ Construye la pila por raycast hacia arriba desde la cara superior de cada caja
+    private void BuildStackFromBase(Rigidbody baseRb)
+    {
+        stack.Clear();
+        stack.Add(baseRb);
 
-    private void CalcularLadoMasCercano()
+        Rigidbody current = baseRb;
+
+        for (int i = 0; i < maxStack - 1; i++)
+        {
+            Rigidbody next = GetBoxOnTop(current);
+            if (next == null) break;
+            if (stack.Contains(next)) break;
+
+            stack.Add(next);
+            current = next;
+        }
+    }
+
+    private Rigidbody GetBoxOnTop(Rigidbody bottom)
+    {
+        Collider c = bottom.GetComponent<Collider>();
+        if (c == null) return null;
+
+        // origen en el centro de la cara superior
+        Vector3 origin = new Vector3(c.bounds.center.x, c.bounds.max.y + rayUpStartOffset, c.bounds.center.z);
+
+        if (Physics.Raycast(origin, Vector3.up, out RaycastHit hit, rayUpMaxDist, ~0, QueryTriggerInteraction.Ignore))
+        {
+            if (hit.collider != null && hit.collider.CompareTag("movable"))
+                return hit.collider.attachedRigidbody;
+        }
+
+        return null;
+    }
+
+    private void CalcularLadoMasCercano(Transform tr)
     {
         Vector3 local = tr.InverseTransformPoint(transform.position);
         local.y = 0f;
@@ -139,7 +208,6 @@ public class Empuje : MonoBehaviour
 
         if (ax > az)
         {
-            agarreEsLateral = true;
             float sign = Mathf.Sign(local.x);
             Vector3 axis = tr.right * sign;
             axis.y = 0f;
@@ -147,7 +215,6 @@ public class Empuje : MonoBehaviour
         }
         else
         {
-            agarreEsLateral = false;
             float sign = Mathf.Sign(local.z);
             Vector3 axis = tr.forward * sign;
             axis.y = 0f;
@@ -157,10 +224,10 @@ public class Empuje : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!agarrando || rb == null || tr == null || playerInputController == null) return;
+        if (!agarrando || rbBase == null || trBase == null || playerInputController == null) return;
 
-        // 1) Recolocar player al punto de agarre
-        Vector3 objetivoPlayer = rb.position + agarreAxisWorld * distanciaAgarre;
+        // 1) Recolocar player al punto de agarre (respecto a BASE)
+        Vector3 objetivoPlayer = rbBase.position + agarreAxisWorld * distanciaAgarre;
         objetivoPlayer.y = transform.position.y;
 
         Vector3 delta = objetivoPlayer - transform.position;
@@ -173,20 +240,17 @@ public class Empuje : MonoBehaviour
             if (step.magnitude > delta.magnitude) step = delta;
         }
 
-        // 2) Input -> velocidad deseada a lo largo del eje permitido
+        // 2) Input proyectado sobre el eje permitido
         Vector2 move = playerInputController.ReadMove();
 
-        // eje permitido (hacia dentro del cubo)
         Vector3 dir = -agarreAxisWorld;
 
-        // input a mundo según orientación del player
         Vector3 worldInput = transform.right * move.x + transform.forward * move.y;
         worldInput.y = 0f;
 
         float v = Vector3.Dot(worldInput, dir);
         v = Mathf.Clamp(v, -1f, 1f);
 
-        // Si no hay input, NO muevas la caja, solo recoloca player
         float dead = 0.05f;
         if (Mathf.Abs(v) < dead)
         {
@@ -198,10 +262,9 @@ public class Empuje : MonoBehaviour
         float velObjetivo = v * velocidadArrastre;
         velActual = Mathf.MoveTowards(velActual, velObjetivo, aceleracionArrastre * Time.fixedDeltaTime);
 
-        // 3) Proponer desplazamiento
         Vector3 desplazamiento = dir * (velActual * Time.fixedDeltaTime);
 
-        // 4) SweepTest para NO empujar otras cosas
+        // 3) SweepTest con la BASE para no empujar otras cosas
         Vector3 desplazSeguro = desplazamiento;
 
         if (desplazamiento.sqrMagnitude > 0f)
@@ -209,29 +272,44 @@ public class Empuje : MonoBehaviour
             Vector3 dirNorm = desplazamiento.normalized;
             float dist = desplazamiento.magnitude;
 
-            if (rb.SweepTest(dirNorm, out RaycastHit hit, dist))
+            if (rbBase.SweepTest(dirNorm, out RaycastHit hit, dist))
             {
-                // Ignora triggers (sensor, etc.)
                 if (!hit.collider.isTrigger)
                 {
-                    // opcional: si quieres ignorar al player o su sensor por layers, hazlo aquí
-
                     float margen = 0.02f;
                     float safeDist = Mathf.Max(0f, hit.distance - margen);
-
                     desplazSeguro = dirNorm * safeDist;
 
-                    // Si no puedes avanzar, para
                     if (safeDist <= 0.001f)
                         velActual = 0f;
                 }
             }
         }
 
-        // 5) Mover caja y player con el mismo desplazamiento "seguro"
-        rb.MovePosition(rb.position + desplazSeguro);
+        // 4) Mover TODA la pila
+        for (int i = 0; i < stack.Count; i++)
+        {
+            Rigidbody r = stack[i];
+            if (r == null) continue;
+            r.MovePosition(r.position + desplazSeguro);
+        }
+
+        // 5) Mover player
         characterController.Move(step + desplazSeguro);
     }
 
+    // --- Debug opcional ---
+    private void DebugCandidates()
+    {
+        if (sensor == null) return;
 
+        Debug.Log("Candidates:");
+        for (int i = 0; i < sensor.Candidates.Count; i++)
+        {
+            var r = sensor.Candidates[i];
+            if (r == null) continue;
+            var c = r.GetComponent<Collider>();
+            Debug.Log($" - {r.name} posY={r.position.y} minY={(c ? c.bounds.min.y : -999f)} maxY={(c ? c.bounds.max.y : -999f)}");
+        }
+    }
 }
