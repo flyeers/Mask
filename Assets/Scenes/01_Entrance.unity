@@ -10917,6 +10917,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6770430132252814197, guid: 152812f5ccdbd5a43916f072e8fb9f00, type: 3}
+      propertyPath: levelBuildIndex
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
